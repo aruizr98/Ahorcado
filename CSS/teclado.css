@@ -21,6 +21,20 @@
 #teclado button:hover{
     transform:scale(1.5);
 }
+#resolver, #nuevaPartida{
+    background-color:black;
+    width:122%;
+}
+#resolver{
+    margin-left:30px;
+}
+#botones{
+    display:grid;
+    grid-column:1/3;
+    grid-template-columns: repeat(2, auto);
+    justify-content:space-between;
+    margin-right: 50px;
+}
 @media (max-width:1136px){
     #teclado{
         grid-template-columns: repeat(8, 5%) 80px;
@@ -36,6 +50,9 @@
         width:92%;
         padding:4px;
         display:block;
-       
+    }
+    #resolver, #nuevaPartida{
+        height:30px;
+        line-height:11px;
     }
 }
