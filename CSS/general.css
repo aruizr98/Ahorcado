@@ -2,6 +2,7 @@
 body{
     background-color:white;
     /* font-family: Papyrus; */
+    /* font-family: 'Press Start 2P'; */
 }
 button{
     padding:10px;
@@ -21,15 +22,8 @@ button{
     opacity:0.3;
     transition:opacity 1s;
 }
-#cajaJugador1{
-    background-color: lightblue;
-    
-}
 #cajaJugador1:hover, #cajaJugador2:hover{
     opacity:1;
-}
-#cajaJugador2{
-    background-color: lightcoral;
 }
 #palabra{
     grid-column:1/3;
