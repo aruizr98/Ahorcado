@@ -7,5 +7,16 @@ function iniciar(){
     
     var cajaJugador1=document.getElementById("cajaJugador1");
     var cajaJugador2=document.getElementById("cajaJugador2");
+    var nombreJugador1=document.getElementById("nombreJugador1");
+    var nombreJugador2=document.getElementById("nombreJugador2");
+    var categoria=document.getElementById("categoria");
     var palabra=document.getElementById("palabra");
+
+    cajaJugador1.style.backgroundColor=localStorage.getItem("colorJugador1");
+    cajaJugador2.style.backgroundColor=localStorage.getItem("colorJugador2");
+    nombreJugador1.innerText=localStorage.getItem("nombreJugador1");
+    nombreJugador2.innerText=localStorage.getItem("nombreJugador2");
+    categoria.innerText=localStorage.getItem("categoria");
+
+    
 }
