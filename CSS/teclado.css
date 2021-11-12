@@ -16,6 +16,10 @@
     background-color:black;
     margin:5px;
     cursor:pointer;
+    transition:all 300ms;
+}
+#teclado button:hover{
+    transform:scale(1.5);
 }
 @media (max-width:1136px){
     #teclado{
