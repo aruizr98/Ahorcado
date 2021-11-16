@@ -19,11 +19,8 @@ button{
     grid-row:1/2;
     height:500px;
     margin:10px;
-    opacity:0.3;
+    opacity:0.2;
     transition:opacity 1s;
-}
-#cajaJugador1:hover, #cajaJugador2:hover{
-    opacity:1;
 }
 #palabra{
     grid-column:1/3;
@@ -34,3 +31,12 @@ button{
     font-size:60px;
     text-align:center;
 }
+#cronometro1, #cronometro2{
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+    width:45px;
+    float:right;
+    font-size:40px;
+    text-align: center;
+}
+
