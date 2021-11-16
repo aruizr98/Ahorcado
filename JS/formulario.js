@@ -21,5 +21,6 @@ window.addEventListener("load", iniciar);
                 localStorage.setItem("modo",modo[1].value);
             }
             window.open("pantalla de juego.html", "Ahorcado");
+            window.close();
         })
     }
