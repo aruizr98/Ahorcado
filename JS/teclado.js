@@ -14,18 +14,17 @@ function iniciar() {
         teclas[index].addEventListener("click", function (e) {
             sessionStorage.setItem("letraPulsada", e.target.value);
             cambioTurno();
-            if(turno==1){
-                cronometro1.innerText="30";
-                cronometro2.innerText="30";
-            }else{
-                cronometro2.innerText="30";
-                cronometro1.innerText="30";
-            }
+            cronometro1.innerText = "30";
+            cronometro2.innerText = "30";
         })
     }
 
     aceptarTeclado.addEventListener("click", function () {
         sessionStorage.setItem("letraPulsada", inputTeclado.value);
+        inputTeclado.value="";
+        cambioTurno();
+        cronometro1.innerText = "30";
+        cronometro2.innerText = "30";
         cambioTurno();
     })
     resolver.addEventListener("click", function () {
