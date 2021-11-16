@@ -34,6 +34,7 @@ function iniciar() {
         if (confirm("¿Estás seguro de que quieres empezar una nueva partida? Se borrarán todos los datos.")) {
             localStorage.clear();
             window.open("formularioInicial.html", "formulario inicial");
+            window.close();
         }
 
     })
