@@ -1,0 +1,102 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+#contenedor {
+    /* font-family: 'Press Start 2P'; */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 4fr 5fr 3fr;
+    grid-template-areas:
+        "espaciado espaciado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado clasificaciones clasificaciones"
+        "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
+        "pie pie pie pie pie pie pie pie pie pie pie pie";
+    align-content: space-between;
+    height: 100vh;
+}
+
+#Encabezado {
+    grid-area: encabezado;
+    justify-self: center;
+    align-self: center;
+}
+
+#clasificaciones {
+    grid-area: clasificaciones;
+    padding-left: 10px;
+    /* justify-self: center; */
+    /* align-self: center; */
+    width: fit-content;
+    min-height: 175px;
+    max-height: 25vh;
+    overflow: scroll;
+}
+
+#comenzarJuego {
+    grid-area: comenzarJuego;
+    justify-self: center;
+    align-self: center;
+}
+
+#muestraOculta {
+    grid-area: muestraOculta;
+    justify-self: center;
+    align-self: center;
+}
+
+#reglas{
+    position: absolute;
+    align-self: center;
+    justify-self: center; 
+    z-index: 1;
+    border-style: outset;
+    border-width: 5px;
+    background: rgb(104, 103, 92);
+    width: 67%;
+    min-height: 175px;
+    max-height: 87vh;
+    overflow: scroll;
+}
+
+#pie {
+    grid-area: pie;
+    justify-self: center;
+    align-self: center;
+}
+
+button{
+    display: block;
+    color: rgb(71, 63, 63);
+    padding: 15px; 
+    font-size: 20px;
+    text-decoration: none;
+    max-width: 150px;
+    border-style: outset;
+    border-width: 5px;
+    background: rgb(104, 103, 92);
+    cursor:pointer;
+}
+ 
+button:hover{
+    background:rgb(71, 63, 63);
+    border-color: rgb(104, 103, 92);
+    color: rgb(104, 103, 92);
+}
+
+a{
+    display: block;
+    color: rgb(168, 147, 52);
+    padding: 15px; 
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    max-width: 120px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: rgb(168, 147, 52);
+    background: rgb(236, 207, 74);
+    cursor:pointer;
+}
+
+a:hover{
+    background:rgb(168, 147, 52);
+    border-color: rgb(236, 207, 74);
+    color: rgb(236, 207, 74);
+}
