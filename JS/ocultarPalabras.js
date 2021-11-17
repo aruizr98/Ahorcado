@@ -2,21 +2,41 @@
 window.addEventListener("load", iniciar);
 function iniciar(){
    
+    function cogerPalabraAleatoria(){
+        let palabraAleatoria;
 
-    if (localStorage.getItem("categoria")=== "peliculas") {
-        document.getElementById("palabra").children[0].innerHTML=peliculas[Math.floor(peliculas.length*Math.random())];
-    }
-    else if(localStorage.getItem("categoria")=== "videojuegos") {
-        document.getElementById("palabra").children[0].innerHTML=videojuegos[Math.floor(videojuegos.length*Math.random())];
-    }
-    else if(localStorage.getItem("categoria")=== "series") {
-        document.getElementById("palabra").children[0].innerHTML=series[Math.floor(series.length*Math.random())];
-    }
-    else if(localStorage.getItem("categoria")=== "grupos") {
-        document.getElementById("palabra").children[0].innerHTML=grupos[Math.floor(grupos.length*Math.random())];
-    }
+        if (localStorage.getItem("categoria")=== "peliculas") {
+            
+            palabraAleatoria= peliculas[Math.floor(peliculas.length*Math.random())]
+            console.log(palabraAleatoria)
+            // document.getElementById("palabra").children[0].innerHTML=palabraAleatoria;
+        }
+
+        else if(localStorage.getItem("categoria")=== "videojuegos") {
+            palabraAleatoria= videojuegos[Math.floor(videojuegos.length*Math.random())]
+            console.log(palabraAleatoria)
     
-
-
+        }
+        else if(localStorage.getItem("categoria")=== "series") {
+            palabraAleatoria= series[Math.floor(series.length*Math.random())]
+            console.log(palabraAleatoria)
     
+        }
+        else if(localStorage.getItem("categoria")=== "grupos") {
+            palabraAleatoria= grupos[Math.floor(grupos.length*Math.random())]
+            console.log(palabraAleatoria)
+        }
+    }
+    cogerPalabraAleatoria();
+    
+    function palabraOculta(palabra){
+        let palabraArray=palabra.split("");
+        for (let i = 0; i < palabra.length; i++) {
+            const element = palabra[i];
+            
+        }
+
+    }
+    palabraOculta();
+         
 }
