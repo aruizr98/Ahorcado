@@ -31,7 +31,19 @@
     let palabra=cogerPalabraAleatoria();
     console.log(palabra);
     
+    function comprobarLetra(){
+        for (let i = 0; i < palabra.length; i++) {
+            if (sessionStorage.getItem("letraPulsada")==palabra[i].toLowerCase()) {
+                palabra[i]=sessionStorage.getItem("letraPulsada");
+                console.log(palabra[i]);
+            }else{
+                palabra[i]="_";
+            }
+        }
 
+
+        
+    }
     let palabraArray = palabra.split("");
     function palabraOculta(palabraArray){
         
@@ -48,17 +60,7 @@
         
     }
 
-    function comprobarLetra(){
-        for (let i = 0; i < palabraArray.length; i++) {
-            if (sessionStorage.getItem("letraPulsada")==palabraArray[i]) {
-                console.log(sessionStorage.getItem("letraPulsada"))
-                
-            }            
-        }
-
-
-        
-    }
+    
 
    window.addEventListener("load", iniciar);
    function iniciar(){
