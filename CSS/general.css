@@ -44,7 +44,7 @@ button{
     height:500px;
     margin:10px;
     opacity:0.2;
-    transition:opacity 1s;
+    transition:all 1s;
 }
 #palabra{
     grid-column:1/3;
