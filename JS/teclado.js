@@ -16,6 +16,7 @@ function iniciar() {
             cambioTurno();
             cronometro1.innerText = "30";
             cronometro2.innerText = "30";
+            comprobarLetra();
         })
     }
 
@@ -26,6 +27,7 @@ function iniciar() {
         cronometro1.innerText = "30";
         cronometro2.innerText = "30";
         cambioTurno();
+        comprobarLetra();
     })
     resolver.addEventListener("click", function () {
         let solucion = prompt("Introduce la palabra o frase");
