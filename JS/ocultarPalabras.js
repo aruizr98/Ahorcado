@@ -1,5 +1,5 @@
-window.addEventListener("load",iniciar);
-    function iniciar(){
+// window.addEventListener("load",iniciar);
+//     function iniciar(){
 
 
     function cogerPalabraAleatoria(){
@@ -26,13 +26,13 @@ window.addEventListener("load",iniciar);
 
     }
 
+    
 
     let palabra=cogerPalabraAleatoria();
     console.log(palabra);
     
 
     let palabraArray = palabra.split("");
-
     function palabraOculta(palabraArray){
         
         for (let i = 0; i < palabraArray.length; i++) {
@@ -42,13 +42,29 @@ window.addEventListener("load",iniciar);
             else{
                 palabraArray[i]="/";
             }
-
+           
         }
-        return palabraArray.join(" ");        
- 
-
+        return palabraArray.join(" ");  
+        
     }
-    
+
+    function comprobarLetra(){
+        for (let i = 0; i < palabraArray.length; i++) {
+            if (sessionStorage.getItem("letraPulsada")==palabraArray[i]) {
+                console.log(sessionStorage.getItem("letraPulsada"))
+                
+            }            
+        }
+
+
+        
+    }
+
+   window.addEventListener("load", iniciar);
+   function iniciar(){
     document.getElementById("palabra").children[0].innerHTML=palabraOculta(palabraArray);
+   }
+   
 
-    }
+    
+    
