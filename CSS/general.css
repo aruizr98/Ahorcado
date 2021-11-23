@@ -2,7 +2,7 @@
 @import url('http://fonts.cdnfonts.com/css/papyrus');
 
 body{
-    background-image: url("paper.jpg");
+    background-image: url("../img/paper.jpg");
     background-color:white;
     font-family: 'Papyrus', sans-serif;
     /* font-family: 'Press Start 2P'; */
