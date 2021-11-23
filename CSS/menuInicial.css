@@ -1,32 +1,49 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+
 #contenedor {
     /* font-family: 'Press Start 2P'; */
+    font-family: papyrus;
+    color: gold;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 4fr 5fr 3fr;
     grid-template-areas:
         "espaciado espaciado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado clasificaciones clasificaciones"
-        "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
+        "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta imagenAhorcado imagenAhorcado comenzarJuego  comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
         "pie pie pie pie pie pie pie pie pie pie pie pie";
     align-content: space-between;
-    height: 100vh;
+    width: 98vw;
+    height: 98vh;
 }
 
-#Encabezado {
+#espaciado{
+    grid-area: espaciado;
+    justify-self: center;
+    align-self: center;
+}
+
+#encabezado {
     grid-area: encabezado;
     justify-self: center;
     align-self: center;
 }
 
+#encabezado img{
+    width: 100%;
+    height: auto;
+}
+
 #clasificaciones {
     grid-area: clasificaciones;
     padding-left: 10px;
-    /* justify-self: center; */
+    justify-self: center;
     /* align-self: center; */
     width: fit-content;
     min-height: 175px;
     max-height: 25vh;
     overflow: scroll;
+    overflow-x: hidden;
+    /* z-index: 0; */
 }
 
 #comenzarJuego {
@@ -35,24 +52,52 @@
     align-self: center;
 }
 
+#imagenAhorcado {
+    grid-area: imagenAhorcado;
+    justify-self: center;
+    align-self: center;
+}
+
+.imagenAhorcado {
+    width: 100%;
+    height: auto;
+}
+
 #muestraOculta {
     grid-area: muestraOculta;
     justify-self: center;
     align-self: center;
 }
 
-#reglas{
+#reglas {
     position: absolute;
     align-self: center;
-    justify-self: center; 
-    z-index: 1;
+    justify-self: center;
+    z-index: 2;
     border-style: outset;
     border-width: 5px;
     background: rgb(104, 103, 92);
-    width: 67%;
+    width: 50vw;
     min-height: 175px;
     max-height: 87vh;
     overflow: scroll;
+    overflow-x: hidden;
+}
+
+#cerrarReglas {
+    margin:auto;
+}
+
+#sombraFondoReglas{
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    z-index: 1;
+    background: black;
+    min-width: 100%;
+	min-height: 100%;
+    overflow: visible;
+    opacity: 0.25;
 }
 
 #pie {
@@ -61,42 +106,84 @@
     align-self: center;
 }
 
-button{
+#imagenFondo {
+    position: absolute;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+}
+
+#imagenPapel {
+    position: absolute;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+    z-index: -1;
+}
+
+button {
+    font-family: papyrus;
+    font-weight: bold;
     display: block;
-    color: rgb(71, 63, 63);
-    padding: 15px; 
+    color: white;
+    padding: 15px;
     font-size: 20px;
     text-decoration: none;
     max-width: 150px;
     border-style: outset;
     border-width: 5px;
-    background: rgb(104, 103, 92);
-    cursor:pointer;
-}
- 
-button:hover{
-    background:rgb(71, 63, 63);
-    border-color: rgb(104, 103, 92);
-    color: rgb(104, 103, 92);
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
 }
 
-a{
+button:hover {
+    border-style: inset;
+    box-shadow: 0px 0px 10px 7px gold;
+}
+
+a {
     display: block;
-    color: rgb(168, 147, 52);
-    padding: 15px; 
+    color: white;
+    padding: 15px;
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
     max-width: 120px;
     border-style: outset;
     border-width: 5px;
-    border-color: rgb(168, 147, 52);
-    background: rgb(236, 207, 74);
-    cursor:pointer;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
 }
 
-a:hover{
-    background:rgb(168, 147, 52);
-    border-color: rgb(236, 207, 74);
-    color: rgb(236, 207, 74);
+a:hover {
+    border-style: inset;
+    box-shadow: 0px 0px 10px 7px gold;
+}
+
+@media only screen and (max-width: 719px)  {
+    #contenedor {
+        grid-template-rows: 4fr 4fr 3fr 2fr;
+        grid-template-areas:
+            "encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado"
+            "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
+            "clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones"
+            "pie pie pie pie pie pie pie pie pie pie pie pie";
+    }
+
+    .imagenAhorcado {
+        display: none;
+    }
+    
+    #reglas {
+        width: 67vw;
+    }
 }
