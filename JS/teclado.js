@@ -16,8 +16,10 @@ function iniciar() {
             cambioTurno();
             cronometro1.innerText = "30";
             cronometro2.innerText = "30";
-            comprobarLetra();
+        document.getElementById("palabra").children[0].innerHTML=comprobarLetra();
+            
         })
+
     }
 
     aceptarTeclado.addEventListener("click", function () {
@@ -27,7 +29,9 @@ function iniciar() {
         cronometro1.innerText = "30";
         cronometro2.innerText = "30";
         cambioTurno();
-        comprobarLetra();
+        document.getElementById("palabra").children[0].innerHTML=comprobarLetra();
+        
+
     })
     resolver.addEventListener("click", function () {
         let solucion = prompt("Introduce la palabra o frase");
