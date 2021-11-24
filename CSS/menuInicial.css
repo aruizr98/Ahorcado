@@ -73,7 +73,7 @@
     position: absolute;
     align-self: center;
     justify-self: center;
-    z-index: 2;
+    z-index: 4;
     border-style: outset;
     border-width: 5px;
     background: rgb(104, 103, 92);
@@ -92,7 +92,7 @@
     position: absolute;
     align-self: center;
     justify-self: center;
-    z-index: 1;
+    z-index: 3;
     background: black;
     min-width: 100%;
 	min-height: 100%;
@@ -108,12 +108,8 @@
 
 #imagenFondo {
     position: absolute;
-	right: 0;
-	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
+	min-width: 100vw;
+	min-height: 100vh;
 	z-index: -1;
 }
 
@@ -186,4 +182,6 @@ a:hover {
     #reglas {
         width: 67vw;
     }
+
+    
 }
