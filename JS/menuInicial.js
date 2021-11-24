@@ -6,8 +6,10 @@ function iniciar() {
 
 function mostrarReglas() {
     document.getElementById("reglas").style.display = "";
+    document.getElementById("sombraFondoReglas").style.display = "";
 }
 
 function cerrarReglas() {
     document.getElementById("reglas").style.display = "none";
+    document.getElementById("sombraFondoReglas").style.display = "none";
 }
