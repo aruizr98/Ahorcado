@@ -26,6 +26,7 @@ function iniciar() {
         cronometro.innerText = numero;
     }
     var intervalo = window.setInterval(function () {
+        if(screen.width>1136){
         if (turno == 1) {
             restarCronometro(cronometro1);
             cajaJugador1.style.opacity = 1;
@@ -39,6 +40,22 @@ function iniciar() {
             cajaJugador1.style.opacity = 0.2;
             cajaJugador1.style.transform = "scale(0.8)";
         }
+    }else{
+        if (turno == 1) {
+            restarCronometro(cronometro1);
+            cajaJugador1.style.display = "";
+            cajaJugador2.style.opacity=0;
+            cajaJugador1.style.opacity=1;
+            cajaJugador2.style.display="none";
+
+        } else {
+            restarCronometro(cronometro2);
+            cajaJugador2.style.display="";
+            cajaJugador1.style.opacity=0;
+            cajaJugador2.style.opacity = 1;
+            cajaJugador1.style.display="none";
+        }
+    }
     }, 1000);
 
 }
