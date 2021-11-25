@@ -16,7 +16,7 @@ function iniciar() {
             cambioTurno();
             cronometro1.innerText = "30";
             cronometro2.innerText = "30";
-        document.getElementById("palabra").children[0].innerHTML=comprobarLetra();
+        document.getElementById("palabra").children[0].innerHTML=comprobarLetra(sessionStorage.getItem("letraPulsada"));
             
         })
 
@@ -24,12 +24,12 @@ function iniciar() {
 
     aceptarTeclado.addEventListener("click", function () {
         sessionStorage.setItem("letraPulsada", inputTeclado.value);
-        inputTeclado.value="";
+        inputTeclado.value="";  
         cambioTurno();
         cronometro1.innerText = "30";
         cronometro2.innerText = "30";
         cambioTurno();
-        document.getElementById("palabra").children[0].innerHTML=comprobarLetra();
+        document.getElementById("palabra").children[0].innerHTML=comprobarLetra(sessionStorage.getItem("letraPulsada"));
         
 
     })
