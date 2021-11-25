@@ -37,13 +37,14 @@
     grid-area: clasificaciones;
     padding-left: 10px;
     justify-self: center;
-    /* align-self: center; */
     width: fit-content;
     min-height: 175px;
     max-height: 25vh;
     overflow: scroll;
     overflow-x: hidden;
-    /* z-index: 0; */
+    border-style: outset;
+    border-width: 5px;
+    color:rgb(0, 0, 25);
 }
 
 #comenzarJuego {
@@ -70,13 +71,13 @@
 }
 
 #reglas {
+    color: rgb(0, 0, 25);
     position: absolute;
     align-self: center;
     justify-self: center;
-    z-index: 4;
+    z-index: 2;
     border-style: outset;
     border-width: 5px;
-    background: rgb(104, 103, 92);
     width: 50vw;
     min-height: 175px;
     max-height: 87vh;
@@ -86,17 +87,17 @@
 
 #cerrarReglas {
     margin:auto;
+    margin-bottom: 20px;
 }
 
 #sombraFondoReglas{
     position: absolute;
-    align-self: center;
-    justify-self: center;
-    z-index: 3;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
     background: black;
-    min-width: 100%;
-	min-height: 100%;
-    overflow: visible;
+	width: 100vw;
+	height: 100vh;
     opacity: 0.25;
 }
 
@@ -108,24 +109,11 @@
 
 #imagenFondo {
     position: absolute;
-    right: 0px;
-	bottom: 0px;
-    top: auto;
-	min-width: 100vw;
-	min-height: 100vh;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+	height: 100vh;
 	z-index: -1;
-}
-
-#imagenPapel {
-    position: absolute;
-    right: 0px;
-	bottom: 0px;
-    top: auto;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-    z-index: -1;
 }
 
 button {
@@ -142,6 +130,7 @@ button {
     border-color: gold;
     background: goldenrod;
     cursor: pointer;
+    transition-duration: 0.75s;
 }
 
 button:hover {
@@ -162,6 +151,7 @@ a {
     border-color: gold;
     background: goldenrod;
     cursor: pointer;
+    transition-duration: 0.75s;
 }
 
 a:hover {
@@ -169,7 +159,7 @@ a:hover {
     box-shadow: 0px 0px 10px 7px gold;
 }
 
-@media only screen and (max-width: 719px)  {
+@media only screen and (max-width: 1025px)  {
     #contenedor {
         grid-template-rows: 4fr 4fr 3fr 2fr;
         grid-template-areas:
@@ -187,5 +177,9 @@ a:hover {
         width: 67vw;
     }
 
-    
+    #clasificaciones {
+        width: 75%;
+        min-height: 100px;
+        max-height: 120px;
+    }
 }
