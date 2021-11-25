@@ -50,6 +50,7 @@ function iniciar() {
             }
         }else{
             alert("Incorrecto");
+            cambioTurno();
         }
     })
     function finDeJuego(){
@@ -64,7 +65,7 @@ function iniciar() {
         }
         ventana.document.write("<h2>Victorias jugador 1("+nombre1+"): "+localStorage.getItem("victoriasJugador1")+"</h2>");
         ventana.document.write("<h2>Victorias jugador 2("+nombre2+"): "+localStorage.getItem("victoriasJugador2")+"</h2>");
-        
+       
     }
     nuevaPartida.addEventListener("click", function () {
         if (confirm("¿Estás seguro de que quieres empezar una nueva partida? Se borrarán todos los datos.")) {
