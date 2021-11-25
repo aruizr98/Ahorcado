@@ -29,26 +29,20 @@ function cogerPalabraAleatoria() {
 
 let palabra = cogerPalabraAleatoria();
 console.log(palabra);
+let letraCorrecta = new Array();
+var palabraDividida = palabra.toLowerCase().split("");
 
-
-function comprobarLetra() {
-    var palabraDividida = palabra.toLowerCase().split("");
- 
-
-    for (let i = 0; i < palabraDividida.length; i++) {
-        if (sessionStorage.getItem("letraPulsada") == palabraDividida[i].toLowerCase()) {
-            palabraDividida[i] = sessionStorage.getItem("letraPulsada")+" ";
-            console.log(palabraDividida[i]);
-        } else {
-            palabraDividida[i] = "_ ";
+function comprobarLetra(letra) {
+    for (let index = 0; index < palabraDividida.length; index++) {
+        if (letra == palabraDividida[index]) {
+            palabraOculta[index] = letra;
         }
     }
-
-    return palabraDividida.join("");
-   
+    return palabraOculta.join(" ");
 }
-let palabraArray = palabra.toLowerCase().split("") ;
-function palabraOculta(palabraArray) {
+
+let palabraArray = palabra.toLowerCase().split("");
+function ocultarPalabra() {
 
     for (let i = 0; i < palabraArray.length; i++) {
         if (palabraArray[i] != " ") {
@@ -57,38 +51,19 @@ function palabraOculta(palabraArray) {
         else {
             palabraArray[i] = "/";
         }
-
+      
     }
-    var palabraJunta = palabraArray.join(" ");
-    return palabraJunta;
-
+    let palabraJunta = palabraArray.join(" ");
+    return palabraArray;
 }
-
-function insertarLetra(letra) {
-    for (let i = 0; i < palabraArray.length; i++) {
-        if (palabraArray[i] == letra) {
-            palabraArray[i] = letra;
-        }
-        else if (palabraArray[i] == " ") {
-            palabraArray[i] = " ";
-        }
-
-    }
-    // console.log(palabraArray.join(""))
-    var palabraString = palabraArray.join();
-    document.getElementById("palabra").children[0].innerHTML = palabraString;
-    1
-    // return palabraString;
-
-}
+var palabraOculta=ocultarPalabra(); 
 
 
 
 window.addEventListener("load", iniciar);
 function iniciar() {
-    document.getElementById("palabra").children[0].innerHTML = palabraOculta(palabraArray);
-
-
+    
+    document.getElementById("palabra").children[0].innerHTML = palabraOculta.join(" ");
 }
 
 
