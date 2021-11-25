@@ -15,6 +15,8 @@ window.addEventListener("load", iniciar);
             localStorage.setItem("colorJugador1", colorJugador1.value);
             localStorage.setItem("colorJugador2", colorJugador2.value);
             localStorage.setItem("categoria", categoria.value);
+            localStorage.setItem("victoriasJugador1", 0);
+            localStorage.setItem("victoriasJugador2",0);
             if(modo[0].checked){
                 localStorage.setItem("modo", modo[0].value);
             }else{
