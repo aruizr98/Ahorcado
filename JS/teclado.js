@@ -9,10 +9,21 @@ function iniciar() {
     var nuevaPartida = document.getElementById("nuevaPartida");
     var cronometro1 = document.getElementById("cronometro1");
     var cronometro2 = document.getElementById("cronometro2");
-
+    var letrasPulsadas=new Array();
+    var correcto=true;
     for (let index = 0; index < teclas.length; index++) {
+       
         teclas[index].addEventListener("click", function (e) {
+            correcto=true;
             sessionStorage.setItem("letraPulsada", e.target.value);
+            for (let index = 0; index < letrasPulsadas.length; index++) {
+                if(letrasPulsadas[index]==sessionStorage.getItem("letraPulsada")){
+                    correcto=false;
+                }
+            }
+            if(correcto){
+            letrasPulsadas.push(e.target.value);
+            console.log(letrasPulsadas);
             cambioTurno();
             cronometro1.innerText = "30";
             cronometro2.innerText = "30";
@@ -20,6 +31,7 @@ function iniciar() {
             teclas[index].style.opacity="0.2";
             teclas[index].classList="";
             teclas[index].style.cursor="unset";
+            }
         })
 
     }
