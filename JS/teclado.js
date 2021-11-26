@@ -3,49 +3,72 @@ window.addEventListener("load", iniciar);
 function iniciar() {
     var teclado = document.getElementById("teclado");
     var teclas = teclado.getElementsByTagName("button");
+    var teclasArray=new Array();
+    for (let index = 0; index < teclas.length; index++) {
+       teclasArray[index] =teclas[index];
+    }
+    var teclasArray2=teclasArray.slice(1, teclasArray.length);
+    console.log(teclasArray2);
     var aceptarTeclado = document.getElementById("aceptarTeclado");
     var inputTeclado = document.getElementById("inputTeclado");
     var resolver = document.getElementById("resolver");
     var nuevaPartida = document.getElementById("nuevaPartida");
     var cronometro1 = document.getElementById("cronometro1");
     var cronometro2 = document.getElementById("cronometro2");
-    var letrasPulsadas=new Array();
-    var correcto=true;
-    for (let index = 0; index < teclas.length; index++) {
-       
-        teclas[index].addEventListener("click", function (e) {
-            correcto=true;
+    var letrasPulsadas = new Array();
+    var correcto = true;
+    for (let index = 0; index < teclasArray2.length; index++) {
+
+        teclasArray2[index].addEventListener("click", function (e) {
+            correcto = true;
             sessionStorage.setItem("letraPulsada", e.target.value);
             for (let index = 0; index < letrasPulsadas.length; index++) {
-                if(letrasPulsadas[index]==sessionStorage.getItem("letraPulsada")){
-                    correcto=false;
+                if (letrasPulsadas[index] == sessionStorage.getItem("letraPulsada")) {
+                    correcto = false;
                 }
             }
-            if(correcto){
-            letrasPulsadas.push(e.target.value);
-            console.log(letrasPulsadas);
-            cambioTurno();
-            cronometro1.innerText = "30";
-            cronometro2.innerText = "30";
-            document.getElementById("palabra").children[0].innerHTML = comprobarLetra(sessionStorage.getItem("letraPulsada"));
-            teclas[index].style.opacity="0.2";
-            teclas[index].classList="";
-            teclas[index].style.cursor="unset";
+            if (correcto) {
+                letrasPulsadas.push(e.target.value);
+                console.log(letrasPulsadas);
+                cambioTurno();
+                cronometro1.innerText = "30";
+                cronometro2.innerText = "30";
+                document.getElementById("palabra").children[0].innerHTML = comprobarLetra(sessionStorage.getItem("letraPulsada"));
+                teclasArray2[index].style.opacity = "0.2";
+                teclasArray2[index].classList = "";
+                teclasArray2[index].style.cursor = "unset";
             }
         })
 
     }
 
     aceptarTeclado.addEventListener("click", function () {
+        correcto = true;
         sessionStorage.setItem("letraPulsada", inputTeclado.value);
-        inputTeclado.value = "";
-        cambioTurno();
-        cronometro1.innerText = "30";
-        cronometro2.innerText = "30";
-        cambioTurno();
-        document.getElementById("palabra").children[0].innerHTML = comprobarLetra(sessionStorage.getItem("letraPulsada"));
+        if(sessionStorage.getItem("letraPulsada")!=""){
+        for (let index = 0; index < letrasPulsadas.length; index++) {
+            if (letrasPulsadas[index] == sessionStorage.getItem("letraPulsada")) {
+                correcto = false;
+                inputTeclado.value = "";
+            }
+        }
 
+        if (correcto) {
+            
+            letrasPulsadas.push(inputTeclado.value);
+           
+            console.log(letrasPulsadas);
+            inputTeclado.value = "";
 
+            
+            cronometro1.innerText = "30";
+            cronometro2.innerText = "30";
+           
+            document.getElementById("palabra").children[0].innerHTML = comprobarLetra(sessionStorage.getItem("letraPulsada"));
+            cambioTurno();
+        }
+
+    }
     })
     resolver.addEventListener("click", function () {
         let solucion = prompt("Introduce la palabra o frase");
