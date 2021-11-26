@@ -18,7 +18,10 @@
     cursor:pointer;
     transition:all 300ms;
 }
-#teclado button:hover{
+/* #teclado button:hover{
+    transform:scale(1.5);
+} */
+.animacion:hover{
     transform:scale(1.5);
 }
 #resolver, #nuevaPartida{
