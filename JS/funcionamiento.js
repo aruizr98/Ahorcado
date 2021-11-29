@@ -23,7 +23,7 @@ function cogerPalabraAleatoria() {
 }
 
 
-let palabra = cogerPalabraAleatoria();
+let palabra = cogerPalabraAleatoria().toLowerCase();
 console.log(palabra);
 let letraCorrecta = new Array();
 var palabraDividida = palabra.toLowerCase().split("");
