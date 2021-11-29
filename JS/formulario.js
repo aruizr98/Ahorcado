@@ -1,6 +1,7 @@
 window.addEventListener("load", iniciar);
 
     function iniciar() {
+        
         var nombreJugador1 = document.getElementById("nombreJugador1");
         var nombreJugador2 = document.getElementById("nombreJugador2");
         var colorJugador1 = document.getElementById("colorJugador1");
@@ -17,6 +18,8 @@ window.addEventListener("load", iniciar);
             localStorage.setItem("categoria", categoria.value);
             localStorage.setItem("victoriasJugador1", 0);
             localStorage.setItem("victoriasJugador2",0);
+            sessionStorage.setItem("fallosJugador1", 0);
+            sessionStorage.setItem("fallosJugador2", 0);
             if(modo[0].checked){
                 localStorage.setItem("modo", modo[0].value);
             }else{

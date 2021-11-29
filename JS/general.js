@@ -2,7 +2,7 @@ var peliculas=["Batman", "Origen", "Star Wars", "Indiana Jones", "Piratas del Ca
     var videojuegos=["Super Mario Bros", "The Legend of Zelda", "Metroid", "Uncharted", "God of War", "Tetris", "Profesor Layton", "Sonic The Hedgehog", "Half Life", "Spyro", "Crash Bandicoot", "Pokemon", "Metal Gear Solid", "Kirby", "Donkey Kong", "Pac Man", "Gran Turismo", "Grand Theft Auto", "Red Dead Redemption", "Call Of Duty", "Assassins Creed", "Rayman", "Splinter Cell"];
     var series=["Breaking Bad", "Prison Break", "House", "Doctor Who", "Sherlock", "Better Call Saul", "The Walking Dead", "Bojack Horseman", "The Crown", "La Maldicion De Hill House", "Stranger Things", "luther", "Jessica Jones", "Black Mirror", "Mr Robot", "You", "Los Simpson", "Futurama"];
     var grupos=["Radiohead", "Blur", "Oasis", "Led Zeppelin", "Metallica", "Daft Punk", "Gorillaz", "Guns And Roses", "The Beatles", "Portishead", "Ramones", "Nirvana", "Kiss", "The Rolling Stornes", "DragonForce", "Lynyrd Skynyrd", "Audioslave", "Coldplay", "LCD Soundsystem", "Rammstein", "Queen", "Muse"];
-
+    
 window.addEventListener("load", iniciar);
 function iniciar(){
     
@@ -23,4 +23,43 @@ function iniciar(){
 
 
     
+}
+function finDeJuego() {
+    let nombre1 = localStorage.getItem("nombreJugador1");
+    let nombre2 = localStorage.getItem("nombreJugador2");
+    var pantallaResumen = document.getElementById("resumen");
+    var sombraFondo=document.getElementById("sombraFondoFinDeJuego");
+    pantallaResumen.style.display = "";
+    sombraFondo.style.display = "";
+
+    let h1 = document.createElement("h1");
+    h1.append("Resúmen de la partida");
+    pantallaResumen.append(h1);
+    let ganador = document.createElement("h2");
+
+    if (turno == 1) {
+        ganador.append("Ganador: " + nombre1);
+        pantallaResumen.append(ganador);
+    } else {
+        ganador.append("Ganador: " + nombre2);
+        pantallaResumen.append(ganador);
+    }
+    let victorias1 = document.createElement("h2");
+    let victorias2 = document.createElement("h2");
+    victorias1.append("Victorias jugador 1 (" + nombre1 + "): " + localStorage.getItem("victoriasJugador1"));
+    pantallaResumen.append(victorias1);
+    victorias2.append("Victorias jugador 2 (" + nombre2 + "): " + localStorage.getItem("victoriasJugador2"));
+    pantallaResumen.append(victorias2);
+    let volverAJugar = document.createElement("button");
+    let volverAlFormulario = document.createElement("button");
+    volverAJugar.innerText = "Volver a jugar";
+    volverAJugar.setAttribute("onclick", "location.reload()");
+    volverAJugar.setAttribute("style", "float:left; margin-left:20px; background-color:black; color:white; cursor:pointer;");
+    pantallaResumen.append(volverAJugar);
+
+    volverAlFormulario.innerText = "Volver al formulario inicial";
+    volverAlFormulario.setAttribute("onclick", "location.href='FormularioInicial.html'");
+    volverAlFormulario.setAttribute("style", "float:right; margin-right:20px; background-color:black; color:white; cursor:pointer;");
+    pantallaResumen.append(volverAlFormulario);
+
 }
