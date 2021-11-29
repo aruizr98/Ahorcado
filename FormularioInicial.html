@@ -36,8 +36,11 @@
         <input type="color" id="colorJugador2" value="#ED5555" />
         <br />
     </div>
+    <br />
+
 </div>
-        <label for="categoria">Categría:</label>
+<div id="fondoCategorias">
+        <label for="categoria" id="colorLetra">Categoría:</label>
         <select id="categoria">
             <option value="videojuegos">Videojuegos</option>
             <option value="series">Series</option>
@@ -45,13 +48,16 @@
             <option value="grupos">Grupos de música</option>
         </select>
         <br />
-        <label for="Modo">Modo de juego:</label>
-        <input type="radio" value="aleatorio" name="modo" required />Aleatorio
+        <div id="colorLetra">
+        <label for="Modo" id="colorLetra">Modo de juego:</label>
+        <input  type="radio" value="aleatorio" name="modo" id="colorLetra" required />Aleatorio
         <!--Añadir explicación en la pantalla de inicio-->
-        <input type="radio" value="dificultad" name="modo" />Por dificultad
+        <input type="radio" value="dificultad" name="modo" id="colorLetra" />Por dificultad
         <!--Añadir explicación en la pantalla de inicio-->
         <br />
-        <input type="submit" id="aceptar" value="Aceptar" />
+    </div>
+</div>
+        <input type="submit" id="aceptar" value="Comenzar" />
     </form>
 </body>
 
