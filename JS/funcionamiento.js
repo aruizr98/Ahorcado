@@ -44,7 +44,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
     if (localStorage.getItem("categoria") == "peliculas") {
         ordenarLongitudPalabras(peliculas);
         if (sessionStorage.getItem("contador") < peliculas.length) {
-            var palabra = peliculas[sessionStorage.getItem("contador")];
+            var palabra = peliculas[sessionStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "videojuegos");
             sessionStorage.setItem("contador", 0);
@@ -53,7 +53,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
     } else if (localStorage.getItem("categoria") == "videojuegos") {
         ordenarLongitudPalabras(videojuegos);
         if (sessionStorage.getItem("contador") < videojuegos.length) {
-            var palabra = videojuegos[sessionStorage.getItem("contador")];
+            var palabra = videojuegos[sessionStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "series");
             sessionStorage.setItem("contador", 0);
@@ -62,7 +62,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
     } else if (localStorage.getItem("categoria") == "series") {
         ordenarLongitudPalabras(series);
         if (sessionStorage.getItem("contador") < series.length) {
-            var palabra = series[sessionStorage.getItem("contador")];
+            var palabra = series[sessionStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "grupos");
             sessionStorage.setItem("contador", 0);
@@ -71,7 +71,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
     } else if (localStorage.getItem("categoria") == "grupos") {
         ordenarLongitudPalabras(grupos);
         if (sessionStorage.getItem("contador") < grupos.length) {
-            var palabra = grupos[sessionStorage.getItem("contador")];
+            var palabra = grupos[sessionStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "peliculas");
             sessionStorage.setItem("contador", 0);
