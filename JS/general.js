@@ -50,7 +50,6 @@ function finDeJuego() {
     let victoriasJugador1 = localStorage.getItem("victoriasJugador1");
     let victoriasJugador2 = localStorage.getItem("victoriasJugador2");
 
-    alert("Enhorabuena, has ganado.");
     if (turno == 1) {
         victoriasJugador1++;
         localStorage.setItem("victoriasJugador1", victoriasJugador1);
