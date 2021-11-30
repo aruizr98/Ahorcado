@@ -77,10 +77,12 @@ function iniciar() {
         if (solucion == palabra) {
 
             if (turno == 1) {
+                alert("Enhorabuena, "+localStorage.getItem("nombreJugador1")+", has ganado");
                 // victoriasJugador1++;
                 // localStorage.setItem("victoriasJugador1", victoriasJugador1++);
                 finDeJuego();
             } else {
+                alert("Enhorabuena, "+localStorage.getItem("nombreJugador2")+", has ganado");
                 // victoriasJugador2++;
                 // localStorage.setItem("victoriasJugador2", victoriasJugador2++);
                 finDeJuego();
