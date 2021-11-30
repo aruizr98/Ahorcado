@@ -1,7 +1,6 @@
 // window.addEventListener("load",iniciar);
 //     function iniciar(){
 
-
 function cogerPalabraAleatoria() {
     let palabraAleatoria;
 
@@ -21,30 +20,89 @@ function cogerPalabraAleatoria() {
     return palabraAleatoria;
 
 }
+function ordenarLongitudPalabras(array) {
+    let ordenado = true;
+    do {
+        ordenado = true;
+        for (let index = 0; index < array.length - 1; index++) {
+            if (array[index].length < array[index + 1].length) {
+                let aux = new Array();
+                aux[index] = array[index];
+                array[index] = array[index + 1];
+                array[index + 1] = aux[index];
+                ordenado = false;
+            }
+        }
+    } while (!ordenado);
+    console.log(array);
+}
 
 
-let palabra = cogerPalabraAleatoria().toLowerCase();
+if (localStorage.getItem("modo") == "aleatorio") {
+    var palabra = cogerPalabraAleatoria().toLowerCase();
+} else {
+    if (localStorage.getItem("categoria") == "peliculas") {
+        ordenarLongitudPalabras(peliculas);
+        if (sessionStorage.getItem("contador") < peliculas.length) {
+            var palabra = peliculas[sessionStorage.getItem("contador")];
+        }else{
+            localStorage.setItem("categoria", "videojuegos");
+            sessionStorage.setItem("contador", 0);
+            location.reload();
+        }
+    } else if (localStorage.getItem("categoria") == "videojuegos") {
+        ordenarLongitudPalabras(videojuegos);
+        if (sessionStorage.getItem("contador") < videojuegos.length) {
+            var palabra = videojuegos[sessionStorage.getItem("contador")];
+        }else{
+            localStorage.setItem("categoria", "series");
+            sessionStorage.setItem("contador", 0);
+            location.reload();
+        }
+    } else if (localStorage.getItem("categoria") == "series") {
+        ordenarLongitudPalabras(series);
+        if (sessionStorage.getItem("contador") < series.length) {
+            var palabra = series[sessionStorage.getItem("contador")];
+        }else{
+            localStorage.setItem("categoria", "grupos");
+            sessionStorage.setItem("contador", 0);
+            location.reload();
+        }
+    } else if (localStorage.getItem("categoria") == "grupos") {
+        ordenarLongitudPalabras(grupos);
+        if (sessionStorage.getItem("contador") < grupos.length) {
+            var palabra = grupos[sessionStorage.getItem("contador")];
+        }else{
+            localStorage.setItem("categoria", "peliculas");
+            sessionStorage.setItem("contador", 0);
+            location.reload();
+        }
+    }
+}
+
+
+
 console.log(palabra);
-let letraCorrecta = new Array();
+var letraCorrecta = new Array();
 var palabraDividida = palabra.toLowerCase().split("");
 var contador = 0;
 
-var espacioLeido=false;
+var espacioLeido = false;
 function comprobarLetra(letra) {
- 
+
     let letraCorrecta = false;
     let fallos1 = Number(sessionStorage.getItem("fallosJugador1"));
     let fallos2 = Number(sessionStorage.getItem("fallosJugador2"));
     // let cuentaEspacios=false;
 
-    if(!espacioLeido){
-    for (let index = 0; index < palabraDividida.length; index++) {
-        if(palabraDividida[index]==" "){
-            contador++;
-            espacioLeido=true;
-        }  
+    if (!espacioLeido) {
+        for (let index = 0; index < palabraDividida.length; index++) {
+            if (palabraDividida[index] == " ") {
+                contador++;
+                espacioLeido = true;
+            }
+        }
     }
-}
     for (let index = 0; index < palabraDividida.length; index++) {
         if (letra == palabraDividida[index]) {
             palabraOculta[index] = letra;
@@ -56,10 +114,10 @@ function comprobarLetra(letra) {
         //     contador++;
         //     cuentaEspacios=true;
         // }
-    // }
+        // }
     }
-    console.log("contador: "+contador);
-    console.log("palabra dividida length: "+palabraDividida.length);
+    console.log("contador: " + contador);
+    console.log("palabra dividida length: " + palabraDividida.length);
     if (contador == palabraDividida.length) {
         cambioTurno();
         finDeJuego();
@@ -131,7 +189,7 @@ function comprobarLetra(letra) {
         }
 
     }
-   
+
     return palabraOculta.join(" ");
 }
 
@@ -157,6 +215,8 @@ var palabraOculta = ocultarPalabra();
 window.addEventListener("load", iniciar);
 
 function iniciar() {
-
+    var contadorPalabras = sessionStorage.getItem("contador");
+    contadorPalabras++
+    sessionStorage.setItem("contador", contadorPalabras);
     document.getElementById("palabra").children[0].innerHTML = palabraOculta.join(" ");
 }
