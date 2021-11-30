@@ -27,68 +27,111 @@ let palabra = cogerPalabraAleatoria().toLowerCase();
 console.log(palabra);
 let letraCorrecta = new Array();
 var palabraDividida = palabra.toLowerCase().split("");
+var contador = 0;
 
+var espacioLeido=false;
 function comprobarLetra(letra) {
+ 
     let letraCorrecta = false;
-    let fallos1=Number(sessionStorage.getItem("fallosJugador1"));
-    let fallos2=Number(sessionStorage.getItem("fallosJugador2"));
+    let fallos1 = Number(sessionStorage.getItem("fallosJugador1"));
+    let fallos2 = Number(sessionStorage.getItem("fallosJugador2"));
+    // let cuentaEspacios=false;
+
+    if(!espacioLeido){
+    for (let index = 0; index < palabraDividida.length; index++) {
+        if(palabraDividida[index]==" "){
+            contador++;
+            espacioLeido=true;
+        }  
+    }
+}
     for (let index = 0; index < palabraDividida.length; index++) {
         if (letra == palabraDividida[index]) {
             palabraOculta[index] = letra;
+            contador++;
             letraCorrecta = true;
         }
+        // if(!cuentaEspacios){
+        // if(palabraDividida[index]==" "){
+        //     contador++;
+        //     cuentaEspacios=true;
+        // }
+    // }
+    }
+    console.log("contador: "+contador);
+    console.log("palabra dividida length: "+palabraDividida.length);
+    if (contador == palabraDividida.length) {
+        cambioTurno();
+        finDeJuego();
     }
     console.log(letraCorrecta);
     if (!letraCorrecta) {
+        // let victoriasJugador1=localStorage.getItem("victoriasJugador1");
+        // let victoriasJugador2=localStorage.getItem("victoriasJugador2");
         if (turno == 2) {
             sessionStorage.setItem("fallosJugador1", fallos1 + 1);
             switch (Number(sessionStorage.getItem("fallosJugador1"))) {
                 case 1:
                     console.log("cabeza");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo1.png");
                     break;
                 case 2:
                     console.log("cuerpo");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo2.png");
                     break;
                 case 3:
                     console.log("brazo1");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo3.png");
                     break;
                 case 4:
                     console.log("brazo2");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo4.png");
                     break;
                 case 5:
                     console.log("pierna1");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo5.png");
                     break;
                 case 6:
                     console.log("pierna2");
+                    document.getElementById("imagenJugador1").setAttribute("src", "img/fallo6.png");
+                    // localStorage.setItem("victoriasJugador2", victoriasJugador2++);
                     finDeJuego();
                     break
             }
         } else {
-            sessionStorage.setItem("fallosJugador2",fallos2 + 1);
+            sessionStorage.setItem("fallosJugador2", fallos2 + 1);
             switch (Number(sessionStorage.getItem("fallosJugador2"))) {
                 case 1:
                     console.log("cabeza");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo1.png");
                     break;
                 case 2:
                     console.log("cuerpo");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo2.png");
                     break;
                 case 3:
                     console.log("brazo1");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo3.png");
                     break;
                 case 4:
                     console.log("brazo2");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo4.png");
                     break;
                 case 5:
                     console.log("pierna1");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo5.png");
                     break;
                 case 6:
                     console.log("pierna2");
+                    document.getElementById("imagenJugador2").setAttribute("src", "img/fallo6.png");
+                    // localStorage.setItem("victoriasJugador1", victoriasJugador1++);
                     finDeJuego();
                     break
             }
         }
 
     }
+   
     return palabraOculta.join(" ");
 }
 
@@ -114,6 +157,6 @@ var palabraOculta = ocultarPalabra();
 window.addEventListener("load", iniciar);
 
 function iniciar() {
-   
+
     document.getElementById("palabra").children[0].innerHTML = palabraOculta.join(" ");
 }
