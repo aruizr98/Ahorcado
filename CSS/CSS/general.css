@@ -1,0 +1,212 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+
+body {
+    background-image: url("../img/imagenMadera.jpg");
+    background-color: white;
+    font-family: papyrus;
+    color: rgb(0, 0, 25);
+    /* font-family: 'Press Start 2P'; */
+}
+
+button {
+    padding: 10px;
+    width: 20%;
+    color: white;
+}
+
+#escudo1 {
+    border-bottom: 1px solid #ccc;
+    height: 100px;
+    grid-area:escudo1;
+    justify-self: flex-start;
+}
+
+#escudo2 {
+    border-bottom: 1px solid #ccc;
+    height: 100px;
+    grid-area: escudo2;
+    justify-self: flex-end;
+}
+
+
+
+#gridContainer {
+    display: grid;
+    align-content:space-between;
+    grid-template-columns: repeat(12, 1fr);
+
+    grid-template-areas:"escudo1 escudo1 escudo1 escudo1 categoria categoria categoria categoria escudo2 escudo2 escudo2 escudo2"
+    "cajaJugador1 cajaJugador1 cajaJugador1 cajaJugador1 cajaJugador1 cajaJugador1 cajaJugador2 cajaJugador2 cajaJugador2 cajaJugador2 cajaJugador2 cajaJugador2"
+    "palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra"
+    "teclado teclado teclado teclado teclado teclado teclado teclado teclado teclado teclado teclado"
+    "botones botones botones botones botones botones botones botones botones botones botones botones";
+}
+#cajaJugador1{
+   grid-area: cajaJugador1;
+}
+#cajaJugador2{
+  grid-area: cajaJugador2;
+}
+#cajaJugador1, #cajaJugador2 {
+    display:block;
+    border: 1px solid black;
+    grid-row: 1/2;
+    width:92%;
+    height: 500px;
+    margin: 10px;
+    margin-top:20%;
+    opacity: 0.2;
+    transition: all 1s;
+    /* background-image: url("../img/paper.jpg");
+    background-repeat: repeat-y; */
+}
+
+#nombreJugador1, #nombreJugador2{
+    margin-left:20px;
+}
+
+#palabra {
+    grid-area:palabra;
+    margin-top:60px;
+    border-style: outset;
+    border-width: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 20px;
+    justify-self: center;
+    align-self: flex-end;
+    font-size: 40px;
+    text-align: center;
+    background-image: url("../img/paper.jpg");
+    background-repeat: repeat-y;
+}
+#resumen{
+    position:absolute;
+    text-align:center;
+    background-image: url("../img/paper.jpg");
+    border:1px solid black;
+    width:50%;
+    margin-left:25%;
+    height:500px;  
+    z-index:2;
+}
+#sombraFondoFinDeJuego{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background: black;
+	width: 100vw;
+	height: 200vh;
+    opacity: 0.25;
+} 
+
+#categoria {
+    grid-area: categoria;
+    font-size: 60px;
+    text-align: center;
+}
+
+#cronometro1, #cronometro2 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: 45px;
+    float: right;
+    font-size: 40px;
+    text-align: center;
+}
+#inputTeclado, #aceptarTeclado{
+    display:none;
+}
+#teclado{
+    display:grid;
+    align-content:center;
+    grid-template-columns: repeat(9, 5%);
+    grid-template-rows: auto;
+    justify-content:center;
+    align-items:center;
+   grid-area:teclado;
+}
+
+#teclado button{
+    border:1px solid black;
+    width:60%;
+    background-color:black;
+    margin:5px;
+    cursor:pointer;
+    transition:all 300ms;
+}
+/* #teclado button:hover{
+    transform:scale(1.5);
+} */
+.animacion:hover{
+    transform:scale(1.5);
+}
+#resolver, #nuevaPartida{
+    background-color:black;
+    width:122%;
+    transition:300ms;
+}
+#resolver:hover, #nuevaPartida:hover{
+    transform:scale(1.3);
+    cursor:pointer;
+}
+#resolver{
+    margin-left:30px;
+}
+#botones{
+    display:grid;
+    grid-area:botones;
+    grid-template-columns: repeat(2, auto);
+    justify-content:space-between;
+    margin-right: 50px;
+}
+@media (max-width:1136px){
+    #teclado{
+        grid-template-columns: repeat(8, 5%) 80px;
+    }
+    #teclado button{
+        display:none;
+    }
+    #inputTeclado{
+        display:block;
+        grid-column:1/9;
+    }
+    #teclado #aceptarTeclado{
+        width:92%;
+        padding:4px;
+        display:block;
+    }
+    #resolver, #nuevaPartida{
+        height:30px;
+        line-height:11px;
+    }
+}
+@media (max-width:1136px) {
+    #gridContainer{
+        display:block;
+        width:90%;
+        margin:0px auto;
+    }
+
+    #cajaJugador1, #cajaJugador2{
+        width:100%;
+       height:380px;
+    }
+
+
+    #botones{
+        margin-top:20px;
+    }
+
+    #palabra {
+        margin-top: 40px;
+        font-size:12px;
+    }
+}
+
+@media (max-width:738px){
+    #cajaJugador1, #cajaJugador2{
+        height:280px;
+    }
+}

@@ -1,0 +1,193 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+
+body {
+    background-image: url("../img/imagenMadera.jpg");
+}
+
+#contenedor {
+    /* font-family: 'Press Start 2P'; */
+    font-family: papyrus;
+    color: gold;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 4fr 5fr 3fr;
+    grid-template-areas:
+        "espaciado espaciado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado clasificaciones clasificaciones"
+        "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta imagenAhorcado imagenAhorcado comenzarJuego  comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
+        "pie pie pie pie pie pie pie pie pie pie pie pie";
+    align-content: space-between;
+    width: 98vw;
+    height: 98vh;
+}
+
+#espaciado{
+    grid-area: espaciado;
+    justify-self: center;
+    align-self: center;
+}
+
+#encabezado {
+    grid-area: encabezado;
+    justify-self: center;
+    align-self: center;
+}
+
+#encabezado img{
+    width: 100%;
+    height: auto;
+}
+
+#clasificaciones {
+    grid-area: clasificaciones;
+    padding-left: 10px;
+    justify-self: center;
+    width: fit-content;
+    min-height: 175px;
+    max-height: 25vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-style: outset;
+    border-width: 5px;
+    color:rgb(0, 0, 25);
+    background-image: url("../img/paper.jpg");
+    background-repeat: repeat-y;
+}
+
+#comenzarJuego {
+    grid-area: comenzarJuego;
+    justify-self: center;
+    align-self: center;
+}
+
+#imagenAhorcado {
+    grid-area: imagenAhorcado;
+    justify-self: center;
+    align-self: center;
+}
+
+.imagenAhorcado {
+    width: 100%;
+    height: auto;
+}
+
+#muestraOculta {
+    grid-area: muestraOculta;
+    justify-self: center;
+    align-self: center;
+}
+
+#reglas {
+    color: rgb(0, 0, 25);
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    z-index: 2;
+    border-style: outset;
+    border-width: 5px;
+    width: 50vw;
+    min-height: 175px;
+    max-height: 87vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-image: url("../img/paper.jpg");
+    background-repeat: repeat-y;
+}
+
+#cerrarReglas {
+    margin:auto;
+    margin-bottom: 20px;
+}
+
+#sombraFondoReglas{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background: black;
+	width: 100vw;
+	height: 100vh;
+    opacity: 0.25;
+}
+
+#pie {
+    grid-area: pie;
+    justify-self: center;
+    align-self: center;
+}
+
+button {
+    font-family: papyrus;
+    font-weight: bold;
+    display: block;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    width: 150px;
+    height: 75px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+button:hover {
+    border-style: inset;
+    width: 165px;
+    height: 85px;
+    box-shadow: 0px 0px 15px 10px gold;
+}
+
+a {
+    padding-top: 20px;
+    display: block;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    width: 120px;
+    height: 30px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
+    transition-duration: 0.75s;
+}
+
+a:hover {
+    border-style: inset;
+    width: 130px;
+    height: 40px;
+    box-shadow: 0px 0px 15px 10px gold;
+}
+
+@media only screen and (max-width: 1025px)  {
+    #contenedor {
+        grid-template-rows: 4fr 4fr 3fr 2fr;
+        grid-template-areas:
+            "encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado"
+            "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
+            "clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones"
+            "pie pie pie pie pie pie pie pie pie pie pie pie";
+    }
+
+    .imagenAhorcado {
+        display: none;
+    }
+    
+    #reglas {
+        width: 67vw;
+    }
+
+    #clasificaciones {
+        width: 75%;
+        min-height: 100px;
+        max-height: 120px;
+    }
+}
