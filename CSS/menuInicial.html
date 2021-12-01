@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado - Menú</title>
+    <link rel="stylesheet" type="text/css" href="CSS/menuInicial.css" />
+    <script src="JS/menuInicial.js"></script>
+</head>
+
+<body>
+    <div id="contenedor">
+
+        <div id="espaciado">
+            <audio loop id="musicaFondo">
+                <source src="audio/Bonfire+-+320bit.mp3" type="audio/mp3">
+                Tu navegador no soporta AUDIO: formato mp3
+            </audio>
+        </div>
+
+        <div id="encabezado">
+            <!-- <img src="img/Ahorcado_Logo.jpg" alt=""></img> -->
+            <img src="img/ahorcado_prueba.png" alt=""></img>
+        </div>
+        
+        <div id="clasificaciones">
+            <h3>TABLA DE PUNTUACIONES</h3>
+            <div id="puntuaciones">
+                Aun no hay puntuaciones<br><br> ¡Empieza una partida y se el primero en clasificarte!
+            </div>
+        </div>
+
+        <a href="FormularioInicial.html" id="comenzarJuego">Iniciar Juego</a>
+
+        <div id="imagenAhorcado">
+            <!-- <img src="img/Ahorcado_Persona.jpg" width="800" height="500" alt=""></img> -->
+            <img src="img/ahorcado_prueba2.png" alt="" class="imagenAhorcado"></img>
+        </div>
+
+        <button id="muestraOculta">
+            Como jugar
+        </button>
+
+        <div id="pie">
+            Juego hecho por: Antonio Lopez, Alejandro Ruiz, Juan Carlos Robles
+            <!-- Aqui va la imagen esta del creative commons -->
+        </div>
+
+        <div id="reglas" style="display: none;">
+            <h3>REGLAS</h3><br>
+            Al iniciar el juego aparecerá una pantalla pre-partida en la que se deben introducir los datos de los
+            jugadores el tipo de palabras que aparecerán y el modo de juego, una vez introducidos los datos
+            comenzará la partida.<br><br>
+
+            Cada jugador tiene 30 segundos para adivinar una letra de la palabra oculta, si el tiempo se acaba o la
+            letra dicha no está en la palabra se añadira una parte del dibujo del Ahorcado y se pasará el turno al otro
+            jugador. <br>
+            En caso de que la letra dicha no este en la palabra oculta además se añadira esa letra al grupo de letras
+            falladas.<br><br>
+
+            El jugador que acierte la palabra o que no tenga el muñeco Ahorcado completo será quien gane la partida.<br>
+            La palabra se puede adivinar acertando todas las letras o dando al botón "Resolver" e introduciendo la
+            palabra completa correctamente. <br>
+            En caso de dar al botón resolver y fallar la palabra, se añadirá una parte del Ahorcado al jugador que haya
+            intentado resolver.<br><br>
+
+            Al hacer click en "Nueva partida" se preguntará si estamos seguros de empezar una nueva partida, si se
+            responde "Si" se volverá a la pantalla pre-partida, si se reponde "No" secontinuará con la partida actual.
+            <br><br>
+            <button id="cerrarReglas">SALIR</button>
+        </div>
+
+        <div id="sombraFondoReglas" style="display: none;"></div>
+    </div>
+</body>
+
+</html>
