@@ -6,7 +6,7 @@ function iniciar() {
     comprobarMejorJugador();
 
     function comprobarMejorJugador() {
-        if ((localStorage.getItem("victoriasJugador1") > localStorage.getItem("victoriasJugador2") || localStorage.getItem("victoriasJugador1") == localStorage.getItem("victoriasJugador2"))) {
+        if ((localStorage.getItem("victoriasJugador1") > localStorage.getItem("victoriasJugador2") )) {
             tabla.innerHTML = "<li>" + localStorage.getItem("nombreJugador1") + ": " + localStorage.getItem("victoriasJugador1") + "</li>";
             tabla.innerHTML += "<li>" + localStorage.getItem("nombreJugador2") + ": " + localStorage.getItem("victoriasJugador2") + "</li>";
         } else if (localStorage.getItem("victoriasJugador2") > localStorage.getItem("victoriasJugador1")) {
