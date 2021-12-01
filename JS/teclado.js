@@ -95,10 +95,12 @@ function iniciar() {
 
     nuevaPartida.addEventListener("click", function () {
         if (confirm("¿Estás seguro de que quieres empezar una nueva partida? Se borrarán todos los datos.")) {
+            sessionStorage.setItem("conservarCambios", false);
             localStorage.clear();
-            // window.open("formularioInicial.html", "formulario inicial");
-            // window.close();
-            location.href="FormularioInicial.html";
+            
+            window.open("formularioInicial.html", "formulario inicial");
+            window.close();
+            // location.href="FormularioInicial.html";
         }
         
     })
