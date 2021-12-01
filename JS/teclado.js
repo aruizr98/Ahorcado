@@ -41,7 +41,6 @@ function iniciar() {
         })
 
     }
-
     aceptarTeclado.addEventListener("click", function () {
         correcto = true;
         sessionStorage.setItem("letraPulsada", inputTeclado.value);

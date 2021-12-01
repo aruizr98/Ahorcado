@@ -43,6 +43,9 @@
     justify-content:space-between;
     margin-right: 50px;
 }
+#letrasFalladas{
+    display:none;
+}
 @media (max-width:1136px){
     #teclado{
         grid-template-columns: repeat(8, 5%) 80px;
@@ -62,5 +65,12 @@
     #resolver, #nuevaPartida{
         height:30px;
         line-height:11px;
+    }
+    #letrasFalladas{
+        display:block;
+        font-size:21px;
+    }
+    #palabra h1{
+        font-size:20px;
     }
 }

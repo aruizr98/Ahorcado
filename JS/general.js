@@ -2,6 +2,7 @@ var peliculas = ["Batman", "Origen", "Star Wars", "Indiana Jones", "Piratas del 
 var videojuegos = ["Super Mario Bros", "The Legend of Zelda", "Metroid", "Uncharted", "God of War", "Tetris", "Profesor Layton", "Sonic The Hedgehog", "Half Life", "Spyro", "Crash Bandicoot", "Pokemon", "Metal Gear Solid", "Kirby", "Donkey Kong", "Pac Man", "Gran Turismo", "Grand Theft Auto", "Red Dead Redemption", "Call Of Duty", "Assassins Creed", "Rayman", "Splinter Cell"];
 var series = ["Breaking Bad", "Prison Break", "House", "Doctor Who", "Sherlock", "Better Call Saul", "The Walking Dead", "Bojack Horseman", "The Crown", "La Maldicion De Hill House", "Stranger Things", "luther", "Jessica Jones", "Black Mirror", "Mr Robot", "You", "Los Simpson", "Futurama"];
 var grupos = ["Radiohead", "Blur", "Oasis", "Led Zeppelin", "Metallica", "Daft Punk", "Gorillaz", "Guns And Roses", "The Beatles", "Portishead", "Ramones", "Nirvana", "Kiss", "The Rolling Stornes", "DragonForce", "Lynyrd Skynyrd", "Audioslave", "Coldplay", "LCD Soundsystem", "Rammstein", "Queen", "Muse"];
+var pause=false;
 
 window.addEventListener("load", iniciar);
 
@@ -68,14 +69,15 @@ function finDeJuego() {
     let volverAlFormulario = document.createElement("button");
     volverAJugar.innerText = "Volver a jugar";
     volverAJugar.setAttribute("onclick", "location.reload()");
-    volverAJugar.setAttribute("style", "float:left; margin-left:20px; background-color:black; color:white; cursor:pointer;");
+    volverAJugar.setAttribute("style", "width:35%;float:left; margin-left:20px; background-color:black; color:white; cursor:pointer;");
     pantallaResumen.append(volverAJugar);
 
     volverAlFormulario.innerText = "Volver al formulario inicial";
     volverAlFormulario.setAttribute("onclick", "location.href='FormularioInicial.html'");
-    volverAlFormulario.setAttribute("style", "float:right; margin-right:20px; background-color:black; color:white; cursor:pointer;");
+    volverAlFormulario.setAttribute("style", "width:35%;float:right; margin-right:20px; background-color:black; color:white; cursor:pointer;");
     pantallaResumen.append(volverAlFormulario);
     sessionStorage.setItem("fallosJugador1", 0);
     sessionStorage.setItem("fallosJugador2", 0);
+    pause=true;
 
 }

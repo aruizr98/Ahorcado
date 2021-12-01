@@ -11,6 +11,7 @@ window.addEventListener("load", iniciar);
         var modo=document.getElementsByName("modo");
 
         formulario.addEventListener("submit", function () {
+            
             sessionStorage.setItem("contador", 0);
             localStorage.setItem("nombreJugador1", nombreJugador1.value);
             localStorage.setItem("nombreJugador2", nombreJugador2.value);

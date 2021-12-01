@@ -10,6 +10,7 @@ var turno = 1;
 
 window.addEventListener("load", iniciar);
 
+
 function iniciar() {
     var cronometro1 = document.getElementById("cronometro1");
     var cronometro2 = document.getElementById("cronometro2");
@@ -25,7 +26,8 @@ function iniciar() {
         }
         cronometro.innerText = numero;
     }
-    var intervalo = window.setInterval(function () {
+    
+    window.setInterval(function () {
         if(screen.width>1136){
         if (turno == 1) {
             restarCronometro(cronometro1);
@@ -57,5 +59,5 @@ function iniciar() {
         }
     }
     }, 1000);
-
+    
 }
