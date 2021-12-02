@@ -7,7 +7,7 @@ var pause=false;
 window.addEventListener("load", iniciar);
 
 function iniciar() {
-    console.log(sessionStorage.getItem("contador"));
+    console.log(localStorage.getItem("contador"));
 
     var cajaJugador1 = document.getElementById("cajaJugador1");
     var cajaJugador2 = document.getElementById("cajaJugador2");
