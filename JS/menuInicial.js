@@ -25,6 +25,9 @@ function iniciar() {
             if(respuesta){
             sessionStorage.setItem("fallosJugador1", 0);
             sessionStorage.setItem("fallosJugador2", 0);
+            let contador=localStorage.getItem("contador");
+            contador--;
+            localStorage.setItem("contador",contador);
             botonIniciar.setAttribute("href", "Pantalla de juego.html");
             }
         } else {
