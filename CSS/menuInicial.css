@@ -12,7 +12,7 @@ body {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 4fr 5fr 3fr;
     grid-template-areas:
-        "espaciado espaciado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado clasificaciones clasificaciones"
+        "controles controles encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado clasificaciones clasificaciones"
         "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta imagenAhorcado imagenAhorcado comenzarJuego  comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
         "pie pie pie pie pie pie pie pie pie pie pie pie";
     align-content: space-between;
@@ -20,10 +20,20 @@ body {
     height: 95vh;
 }
 
-#espaciado{
-    grid-area: espaciado;
-    justify-self: center;
-    align-self: center;
+#controles_musica{
+    grid-area: controles;
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
+#playMusica {
+    width: 75px;
+    height: 75px;
+}
+
+#playMusica img{
+    width: 100%;
+    height: auto;
 }
 
 #encabezado {
@@ -74,6 +84,32 @@ body {
     grid-area: comenzarJuego;
     justify-self: center;
     align-self: center;
+    padding-top: 30px;
+    display: block;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    width: 120px;
+    height: 30px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
+    transition-duration: 0.75s;
+}
+
+#comenzarJuego:hover {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-style: inset;
+    width: 130px;
+    height: 40px;
+    box-shadow: 0px 0px 15px 10px gold;
 }
 
 #imagenAhorcado {
@@ -134,7 +170,12 @@ body {
 #pie {
     grid-area: pie;
     justify-self: center;
-    align-self: center;
+    align-self:flex-end;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    color:rgb(0, 0, 25);
+    background-image: url("../img/paper.jpg");
 }
 
 button {
@@ -162,34 +203,6 @@ button:hover {
     box-shadow: 0px 0px 15px 10px gold;
 }
 
-a {
-    padding-top: 30px;
-    display: block;
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 20px;
-    text-decoration: none;
-    text-align: center;
-    margin: auto;
-    width: 120px;
-    height: 30px;
-    border-style: outset;
-    border-width: 5px;
-    border-color: gold;
-    background: goldenrod;
-    cursor: pointer;
-    transition-duration: 0.75s;
-}
-
-a:hover {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border-style: inset;
-    width: 130px;
-    height: 40px;
-    box-shadow: 0px 0px 15px 10px gold;
-}
 
 @media only screen and (max-width: 1024px)  {
     #contenedor {
@@ -197,7 +210,7 @@ a:hover {
         grid-template-areas:
             "encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado encabezado"
             "muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta muestraOculta comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego comenzarJuego"
-            "clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones"
+            "clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones clasificaciones  controles controles controles"
             "pie pie pie pie pie pie pie pie pie pie pie pie";
     }
 
@@ -207,6 +220,16 @@ a:hover {
 
     .imagenAhorcado {
         display: none;
+    }
+
+    #controles_musica{
+        justify-self: center;
+        align-self: center;
+    }
+
+    #pie {
+        justify-self: center;
+        align-self: flex-end;
     }
     
     #reglas {
