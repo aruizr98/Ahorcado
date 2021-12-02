@@ -10,16 +10,14 @@ function iniciar() {
     var modo = document.getElementsByName("modo");
 
     formulario.addEventListener("submit", function () {
-        sessionStorage.setItem("contador", 0);
+        localStorage.setItem("contador", 0);
         localStorage.setItem("nombreJugador1", nombreJugador1.value);
         localStorage.setItem("nombreJugador2", nombreJugador2.value);
         localStorage.setItem("colorJugador1", colorJugador1.value);
         localStorage.setItem("colorJugador2", colorJugador2.value);
         localStorage.setItem("categoria", categoria.value);
-        if (sessionStorage.getItem("conservarCambios")=="false") {
-            localStorage.setItem("victoriasJugador1", 0);
-            localStorage.setItem("victoriasJugador2", 0);
-        }
+        localStorage.setItem("victoriasJugador1", 0);
+        localStorage.setItem("victoriasJugador2", 0);
         sessionStorage.setItem("fallosJugador1", 0);
         sessionStorage.setItem("fallosJugador2", 0);
         if (modo[0].checked) {
