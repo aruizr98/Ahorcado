@@ -1,5 +1,4 @@
-// window.addEventListener("load",iniciar);
-//     function iniciar(){
+
 
 function cogerPalabraAleatoria() {
     let palabraAleatoria;
@@ -43,8 +42,8 @@ if (localStorage.getItem("modo") == "aleatorio") {
 } else {
     if (localStorage.getItem("categoria") == "peliculas") {
         ordenarLongitudPalabras(peliculas);
-        if (sessionStorage.getItem("contador") < peliculas.length) {
-            var palabra = peliculas[sessionStorage.getItem("contador")].toLowerCase();
+        if (localStorage.getItem("contador") < peliculas.length) {
+            var palabra = peliculas[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "videojuegos");
             sessionStorage.setItem("contador", 0);
@@ -52,8 +51,8 @@ if (localStorage.getItem("modo") == "aleatorio") {
         }
     } else if (localStorage.getItem("categoria") == "videojuegos") {
         ordenarLongitudPalabras(videojuegos);
-        if (sessionStorage.getItem("contador") < videojuegos.length) {
-            var palabra = videojuegos[sessionStorage.getItem("contador")].toLowerCase();
+        if (localStorage.getItem("contador") < videojuegos.length) {
+            var palabra = videojuegos[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "series");
             sessionStorage.setItem("contador", 0);
@@ -61,20 +60,20 @@ if (localStorage.getItem("modo") == "aleatorio") {
         }
     } else if (localStorage.getItem("categoria") == "series") {
         ordenarLongitudPalabras(series);
-        if (sessionStorage.getItem("contador") < series.length) {
-            var palabra = series[sessionStorage.getItem("contador")].toLowerCase();
+        if (localStorage.getItem("contador") < series.length) {
+            var palabra = series[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "grupos");
-            sessionStorage.setItem("contador", 0);
+            localStorage.setItem("contador", 0);
             location.reload();
         }
     } else if (localStorage.getItem("categoria") == "grupos") {
         ordenarLongitudPalabras(grupos);
-        if (sessionStorage.getItem("contador") < grupos.length) {
-            var palabra = grupos[sessionStorage.getItem("contador")].toLowerCase();
+        if (localStorage.getItem("contador") < grupos.length) {
+            var palabra = grupos[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "peliculas");
-            sessionStorage.setItem("contador", 0);
+            localStorage.setItem("contador", 0);
             location.reload();
         }
     }
@@ -288,8 +287,10 @@ var palabraOculta = ocultarPalabra();
 window.addEventListener("load", iniciar);
 
 function iniciar() {
-    var contadorPalabras = sessionStorage.getItem("contador");
+    var contadorPalabras = localStorage.getItem("contador");
+    if(sessionStorage.getItem("conservarCambios")=="false"){//Sólo se suma si el usuario no quiere conservar cambios.
     contadorPalabras++
-    sessionStorage.setItem("contador", contadorPalabras);
+    }
+    localStorage.setItem("contador", contadorPalabras);
     document.getElementById("palabra").children[0].innerHTML = palabraOculta.join(" ");
 }
