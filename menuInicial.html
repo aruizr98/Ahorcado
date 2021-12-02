@@ -13,11 +13,12 @@
 <body>
     <div id="contenedor">
 
-        <div id="espaciado">
-            <audio loop id="musicaFondo">
+        <div id="controles_musica">
+            <audio volume="0,0000152587890625" loop id="musicaFondo">
                 <source src="audio/Bonfire+-+320bit.mp3" type="audio/mp3">
                 Tu navegador no soporta AUDIO: formato mp3
             </audio>
+            <button id="playMusica"><img src="img/audioOFF1.png" id="imagenAudio" alt=""></img></button><!-- meter imagen de nota musical y que al activarlo se cambie el icono / volumen al 0.0625 (?) -->
         </div>
 
         <div id="encabezado">
@@ -44,8 +45,11 @@
         </button>
 
         <div id="pie">
-            Juego hecho por: Antonio Lopez, Alejandro Ruiz, Juan Carlos Robles
+            Juego hecho por: Antonio Lopez, Alejandro Ruiz, Juan Carlos Robles<br>
             <!-- Aqui va la imagen esta del creative commons -->
+            Musica: "Bonfire" por Alexander Nakarada (<a href="http://www.serpentsoundstudios.com" title="serpentsoundstudios">www.serpentsoundstudios.com</a>)
+            Bajo la licencia Creative Commons por la licencia de atribución 4.0
+            <a href="http://creativecommons.org/licenses/by/4.0/" title="creativecommons">http://creativecommons.org/licenses/by/4.0/</a><br>
         </div>
 
         <div id="reglas" style="display: none;">
