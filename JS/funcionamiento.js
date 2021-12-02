@@ -288,9 +288,21 @@ window.addEventListener("load", iniciar);
 
 function iniciar() {
     var contadorPalabras = localStorage.getItem("contador");
-    if(sessionStorage.getItem("conservarCambios")=="false"){//Sólo se suma si el usuario no quiere conservar cambios.
-    contadorPalabras++
-    }
+    // if(sessionStorage.getItem("conservarCambios")=="false"){
+    //     contadorPalabras++;
+    //     localStorage.setItem("contador", contadorPalabras);
+    // }else{
+    //     sessionStorage.setItem("conservarCambios", "false");
+    // }
+    contadorPalabras++;
     localStorage.setItem("contador", contadorPalabras);
+    // if(sessionStorage.getItem("conservarCambios")=="true"){
+    //     sessionStorage.setItem("conservarCambios", "false");
+    // }
+
+    // if(sessionStorage.getItem("conservarCambios")=="false"){//Sólo se suma si el usuario no quiere conservar cambios.
+    // contadorPalabras++
+    // }
+    
     document.getElementById("palabra").children[0].innerHTML = palabraOculta.join(" ");
 }
