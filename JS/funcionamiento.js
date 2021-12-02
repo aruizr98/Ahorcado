@@ -46,7 +46,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
             var palabra = peliculas[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "videojuegos");
-            sessionStorage.setItem("contador", 0);
+            localStorage.setItem("contador", 0);
             location.reload();
         }
     } else if (localStorage.getItem("categoria") == "videojuegos") {
@@ -55,7 +55,7 @@ if (localStorage.getItem("modo") == "aleatorio") {
             var palabra = videojuegos[localStorage.getItem("contador")].toLowerCase();
         }else{
             localStorage.setItem("categoria", "series");
-            sessionStorage.setItem("contador", 0);
+            localStorage.setItem("contador", 0);
             location.reload();
         }
     } else if (localStorage.getItem("categoria") == "series") {
