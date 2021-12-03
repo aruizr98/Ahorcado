@@ -89,7 +89,7 @@ function finDeJuego() {
     pantallaResumen.append(volverAJugar);
 
     volverAlFormulario.innerText = "Volver al formulario inicial";
-    volverAlFormulario.setAttribute("onclick", "location.href='FormularioInicial.html'");
+    volverAlFormulario.setAttribute("onclick", "window.open('FormularioInicial.html');window.close();");
     volverAlFormulario.setAttribute("style", "font-family:papyrus;font-size:14px;width:35%;float:right; margin-right:20px; background-color:black; color:white; cursor:pointer;");
     pantallaResumen.append(volverAlFormulario);
     sessionStorage.setItem("fallosJugador1", 0);
