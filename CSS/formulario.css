@@ -6,6 +6,23 @@ body{
     background-image: url("../img/imagenMadera.jpg");
     /* font-family: 'Press Start 2P'; */
 }
+#playMusica{
+    font-family: papyrus;
+    font-weight: bold;
+    display: block;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    width: 75px;
+    height: 75px;   
+    border-style: outset;
+    border-width: 5px;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
 h1{
     color: gold;
     font-size: 500%;
@@ -101,14 +118,14 @@ input[type="text"]{
 @media only screen and (max-width: 685px) {
     .divFormulario:hover{
         transform: scale(1);
-        -webkit-animation: tiembla 0.4s ;
+        animation: tiembla 0.4s ;
 
     }
-    @-webkit-keyframes tiembla{
-        0%  { -webkit-transform:rotateZ(-1.5deg); }
-        25%  { -webkit-transform:rotateZ(-1deg); }
-        50%  { -webkit-transform:rotateZ(0deg); }
-        75% { -webkit-transform:rotateZ(1deg) }
-        100%{ -webkit-transform:rotateZ( 1.5deg); }
+    @keyframes tiembla{
+        0%  { transform:rotateZ(-1.5deg); }
+        25%  { transform:rotateZ(-1deg); }
+        50%  { transform:rotateZ(0deg); }
+        75% { transform:rotateZ(1deg) }
+        100%{ transform:rotateZ( 1.5deg); }
       }
 }
