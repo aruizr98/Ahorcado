@@ -37,6 +37,7 @@ button {
     color: white;
 }
 
+
 #escudo1 {
     border-bottom: 1px solid #ccc;
     height: 80px;
@@ -136,7 +137,7 @@ button {
 }
 #categoria {
     font-size: 60px;
-    height:46px;
+    height:14px;
     line-height:8px;
     text-align: center;
 }
@@ -146,6 +147,14 @@ button {
     border-left: 1px solid black;
     width: 45px;
     float: right;
+    font-size: 40px;
+    text-align: center;
+}
+#victorias1, #victorias2{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 45px;
+    float: left;
     font-size: 40px;
     text-align: center;
 }
