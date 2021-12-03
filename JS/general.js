@@ -7,6 +7,8 @@ var pause=false;
 window.addEventListener("load", iniciar);
 
 function iniciar() {
+    document.getElementById("victorias1").innerText=localStorage.getItem("victoriasJugador1");
+document.getElementById("victorias2").innerText=localStorage.getItem("victoriasJugador2");
     document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
     console.log(localStorage.getItem("contador"));
 
@@ -74,7 +76,8 @@ function finDeJuego() {
         localStorage.setItem("victoriasJugador2", victoriasJugador2);
        
     }
-
+    // document.getElementById("victorias1").innerText=victoriasJugador1;
+    // document.getElementById("victorias2").innerText=victoriasJugador2;
     victorias1.append("Victorias jugador 1 (" + nombre1 + "): " + localStorage.getItem("victoriasJugador1"));
     pantallaResumen.append(victorias1);
     victorias2.append("Victorias jugador 2 (" + nombre2 + "): " + localStorage.getItem("victoriasJugador2"));
