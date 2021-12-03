@@ -8,7 +8,29 @@ body {
     text-align:center;
     /* font-family: 'Press Start 2P'; */
 }
-
+#controles_musica{
+    grid-area: controles;
+    justify-self: flex-start;
+    align-self: flex-start;
+    grid-column:1;
+}
+#playMusica{
+    font-family: papyrus;
+    font-weight: bold;
+    display: block;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    width: 75px;
+    height: 75px;   
+    border-style: outset;
+    border-width: 5px;
+    border-color: gold;
+    background: goldenrod;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
 button {
     padding: 10px;
     width: 20%;
