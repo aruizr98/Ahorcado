@@ -12,23 +12,26 @@
 
 <body>
     <div id="contenedor">
-
         <div id="controles_musica">
+            <!--Música de fondo-->
             <audio volume="0,0000152587890625" loop id="musicaFondo">
                 <source src="audio/Bonfire+-+320bit.mp3" type="audio/mp3">
                 Tu navegador no soporta AUDIO: formato mp3
             </audio>
-            <button id="playMusica"><img src="img/audioOFF1.png" id="imagenAudio" alt=""></img></button><!-- meter imagen de nota musical y que al activarlo se cambie el icono / volumen al 0.0625 (?) -->
+            <button id="playMusica"><img src="img/audioOFF1.png" id="imagenAudio" alt=""></img></button>
+            <!-- meter imagen de nota musical y que al activarlo se cambie el icono / volumen al 0.0625 (?) -->
         </div>
 
         <div id="encabezado">
+            <!--Imagen del título-->
             <!-- <img src="img/Ahorcado_Logo.jpg" alt=""></img> -->
             <img src="img/ahorcado_prueba.png" alt=""></img>
         </div>
-        
+
         <div id="clasificaciones">
             <h3>TABLA DE PUNTUACIONES</h3>
             <div id="puntuaciones">
+                <!--Sólo se actualiza si alguno de los jugadores consigue al menos una victoria-->
                 Aun no hay puntuaciones<br><br> ¡Empieza una partida y se el primero en clasificarte!
             </div>
         </div>
@@ -41,16 +44,21 @@
         </div>
 
         <button id="muestraOculta">
+            <!--Despliega un texto explicativo del juego-->
             Como jugar
         </button>
 
-        <div id="pie">
+        <footer id="pie">
             Juego hecho por: Antonio Lopez, Alejandro Ruiz, Juan Carlos Robles<br>
             <!-- Aqui va la imagen esta del creative commons -->
-            Musica: "Bonfire" por Alexander Nakarada (<a href="http://www.serpentsoundstudios.com" title="serpentsoundstudios">www.serpentsoundstudios.com</a>)
+            Musica: "Bonfire" por Alexander Nakarada (<a href="http://www.serpentsoundstudios.com"
+                title="serpentsoundstudios">www.serpentsoundstudios.com</a>)
             Bajo la licencia Creative Commons por la licencia de atribución 4.0
-            <a href="http://creativecommons.org/licenses/by/4.0/" title="creativecommons">http://creativecommons.org/licenses/by/4.0/</a><br>
-        </div>
+            <a href="http://creativecommons.org/licenses/by/4.0/"
+                title="creativecommons">http://creativecommons.org/licenses/by/4.0/</a><br>
+            Efecto de Aplausos: (<a href="https://www.freemusicprojects.com/es/" title="www.freemusicprojects.com">www.freemusicprojects.com</a>)<br/>
+            Efecto fallar: (<a href="https://www.videvo.net/es/" title="www.videvo.net/es">www.videvo.net/es</a>)
+        </footer>
 
         <div id="reglas" style="display: none;">
             <h3>REGLAS</h3><br>
@@ -77,6 +85,7 @@
         </div>
 
         <div id="sombraFondoReglas" style="display: none;"></div>
+        <!--Para que no se pueda pulsar nada alrededor del div de las reglas. También lo usamos en el div resumen (general.css)-->
     </div>
 </body>
 
