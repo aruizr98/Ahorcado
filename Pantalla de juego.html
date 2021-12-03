@@ -17,7 +17,12 @@
 </head>
 
 <body>
-
+    <audio id="ganar" autoplay>
+        <source src="audio/aplauso-multitud.mp3" type="audio/mp3"/>
+    </audio>
+    <audio id="fallar" autoplay>
+        <source src="audio/WoodImpactShrtBig PE1057005.mp3"/>
+    </audio>
     <div id="gridContenedor"><!--Contenedor de la cabecera-->
         <img id="escudo1" src="img/escudo1.jpg"></img>
         <h1 id="categoria">Categoría</h1>
@@ -34,8 +39,8 @@
     <div id="resumen" style="display:none;"></div><!--Esto sólo se muestra al resolver una palabra-->
     <div id="gridContainer"><!--Contenedor de la pantalla de juego-->
         <div id="cajaJugador1">
-            <div id="victorias1"></div>
-            <div id="cronometro1">30</div>
+            <div id="victorias1"></div><!--Muestra las victorias que lleva el jugador-->
+            <div id="cronometro1">30</div><!--Se va restando cada segundo y al llegar a 0 se cambia el turno-->
             <h1 id="nombreJugador1">Jugador 1</h1>
             <div id="fotoJugador1"><img id="imagenJugador1" src="img/fallo0.png" /></div>
         </div>
@@ -46,11 +51,11 @@
             <div id="fotoJugador2"><img id="imagenJugador2" src="img/fallo0.png" /></div>
         </div>
         <div id="palabra">
-            <h1 id="palabraResolver"></h1>
-            <p id="letrasFalladas"></p>
+            <h1 id="palabraResolver"></h1><!--Al principio está oculta. En responsive, se anima para avisar al jugador de que ya ha seleccionado esa letra-->
+            <p id="letrasFalladas"></p><!--Muestra las letras falladas solo en responsive. Se anima si el jugador ha introducido una letra fallada-->
         </div>
 
-        <div id="sombraFondoFinDeJuego" style="display:none;"></div>
+        <div id="sombraFondoFinDeJuego" style="display:none;"></div><!--Para no poder hacer click en niniguna parte de la página al aparecer el div resumen-->
         <div id="teclado">
             <input maxlength="1" type="text" id="inputTeclado" />
             <button id="aceptarTeclado">Aceptar</button>
