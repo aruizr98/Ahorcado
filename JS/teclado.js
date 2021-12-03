@@ -41,6 +41,55 @@ function iniciar() {
         })
 
     }
+
+    function animar() {
+        //Animación
+        let fallada = false;
+        var animacion = [{
+                transform: "translateY(10px)"
+            },
+            {
+                transform: "translateY(-10px)"
+            },
+            {
+                transform: "translateY(0px)"
+            },
+            {
+                transform: "translateY(10px)"
+            },
+            {
+                transform: "translateY(-10px)"
+            },
+            {
+                transform: "translateY(0px)"
+            },
+            {
+                transform: "translateY(10px)"
+            },
+            {
+                transform: "translateY(-10px)"
+            },
+            {
+                transform: "translateY(0px)"
+            }
+        ]
+        for (let index = 0; index < letrasFalladas.length; index++) {
+            fallada = false;
+            if (letrasFalladas[index] == sessionStorage.getItem("letraPulsada")) {
+                fallada = true;
+                index = letrasFalladas.length;
+            }
+        }
+        if (fallada) { //Si la letra pulsada es una de las falladas, se anima la fila de letras falladas
+            document.getElementById("letrasFalladas").animate(animacion, {
+                duration: 500
+            });
+        } else { //Si no, se anima la palabra oculta
+            document.getElementById("palabraResolver").animate(animacion, {
+                duration: 500
+            });
+        }
+    };
     aceptarTeclado.addEventListener("click", function () {
         correcto = true;
         sessionStorage.setItem("letraPulsada", inputTeclado.value);
@@ -49,6 +98,7 @@ function iniciar() {
                 if (letrasPulsadas[index] == sessionStorage.getItem("letraPulsada")) {
                     correcto = false;
                     inputTeclado.value = "";
+                    animar();
                 }
             }
 
@@ -76,12 +126,12 @@ function iniciar() {
         if (solucion == palabra) {
 
             if (turno == 1) {
-                alert("Enhorabuena, "+localStorage.getItem("nombreJugador1")+", has ganado");
+                alert("Enhorabuena, " + localStorage.getItem("nombreJugador1") + ", has ganado");
                 // victoriasJugador1++;
                 // localStorage.setItem("victoriasJugador1", victoriasJugador1++);
                 finDeJuego();
             } else {
-                alert("Enhorabuena, "+localStorage.getItem("nombreJugador2")+", has ganado");
+                alert("Enhorabuena, " + localStorage.getItem("nombreJugador2") + ", has ganado");
                 // victoriasJugador2++;
                 // localStorage.setItem("victoriasJugador2", victoriasJugador2++);
                 finDeJuego();
@@ -97,11 +147,11 @@ function iniciar() {
         if (confirm("¿Estás seguro de que quieres empezar una nueva partida? Se borrarán todos los datos.")) {
             sessionStorage.setItem("conservarCambios", false);
             localStorage.clear();
-            
+
             window.open("formularioInicial.html", "formulario inicial");
             window.close();
             // location.href="FormularioInicial.html";
         }
-        
+
     })
 }
