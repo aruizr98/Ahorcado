@@ -55,6 +55,7 @@ button {
     display: grid;
     grid-template-columns: 3fr 2fr 3fr;
     grid-template-rows: 50% 30%;
+    margin-bottom:-60px;
 }
 
 #gridContainer {
@@ -262,6 +263,9 @@ button {
     }
 }
 @media (max-width:500px){
+   #gridContenedor{
+       margin-bottom:-20px;
+   }
     #palabra h1{
         font-size:11px;
     }
@@ -276,6 +280,11 @@ button {
     }
     #nombreJugador1, #nombreJugador2{
         margin-bottom:-11px;
+    }
+    #playMusica{
+        position:absolute;
+        bottom:7%;
+        left:42%;
     }
 }
 @media (max-width:380px){
@@ -298,5 +307,10 @@ button {
     #resolver, #nuevaPartida{
         margin:10px;
         height:37px;
+    }
+    #playMusica{
+        position:absolute;
+        bottom:0%;
+        left:37%;
     }
 }
