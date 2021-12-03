@@ -1,9 +1,10 @@
 window.addEventListener("load", iniciar);
-
 function iniciar() {
     var botonIniciar = document.getElementById("comenzarJuego");
     document.getElementById("muestraOculta").addEventListener("click", mostrarReglas);
     document.getElementById("cerrarReglas").addEventListener("click", cerrarReglas);
+    document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
+
     var tabla = document.getElementById("puntuaciones");
     comprobarMejorJugador();
 
@@ -18,17 +19,18 @@ function iniciar() {
             }
         }
     }
+    
     botonIniciar.addEventListener("click", function () {
         if (localStorage.getItem("victoriasJugador1") > 0 || localStorage.getItem("victoriasJugador2") > 0) {
             let respuesta = confirm("Hay datos de juego anteriores. ¿Quieres conservarlos?");
             sessionStorage.setItem("conservarCambios", respuesta);
-            if(respuesta){
-            sessionStorage.setItem("fallosJugador1", 0);
-            sessionStorage.setItem("fallosJugador2", 0);
-            let contador=localStorage.getItem("contador");
-            contador--;
-            localStorage.setItem("contador",contador);
-            botonIniciar.setAttribute("href", "Pantalla de juego.html");
+            if (respuesta) {
+                sessionStorage.setItem("fallosJugador1", 0);
+                sessionStorage.setItem("fallosJugador2", 0);
+                let contador = localStorage.getItem("contador");
+                contador--;
+                localStorage.setItem("contador", contador);
+                botonIniciar.setAttribute("href", "Pantalla de juego.html");
             }
         } else {
             sessionStorage.setItem("conservarCambios", false);
@@ -44,4 +46,19 @@ function mostrarReglas() {
 function cerrarReglas() {
     document.getElementById("reglas").style.display = "none";
     document.getElementById("sombraFondoReglas").style.display = "none";
+}
+
+function playMusicaFondo() {
+    if (document.getElementById("musicaFondo").paused == true) {
+        document.getElementById("musicaFondo").play();
+        document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+    } else {
+        if (document.getElementById("musicaFondo").muted == true) {
+            document.getElementById("musicaFondo").muted = false;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+        } else {
+            document.getElementById("musicaFondo").muted = true;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioOFF1.png");
+        }
+    }
 }
