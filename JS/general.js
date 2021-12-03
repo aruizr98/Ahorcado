@@ -2,13 +2,13 @@ var peliculas = ["Batman", "Origen", "Star Wars", "Indiana Jones", "Piratas del 
 var videojuegos = ["Super Mario Bros", "The Legend of Zelda", "Metroid", "Uncharted", "God of War", "Tetris", "Profesor Layton", "Sonic The Hedgehog", "Half Life", "Spyro", "Crash Bandicoot", "Pokemon", "Metal Gear Solid", "Kirby", "Donkey Kong", "Pac Man", "Gran Turismo", "Grand Theft Auto", "Red Dead Redemption", "Call Of Duty", "Assassins Creed", "Rayman", "Splinter Cell"];
 var series = ["Breaking Bad", "Prison Break", "House", "Doctor Who", "Sherlock", "Better Call Saul", "The Walking Dead", "Bojack Horseman", "The Crown", "La Maldicion De Hill House", "Stranger Things", "luther", "Jessica Jones", "Black Mirror", "Mr Robot", "You", "Los Simpson", "Futurama"];
 var grupos = ["Radiohead", "Blur", "Oasis", "Led Zeppelin", "Metallica", "Daft Punk", "Gorillaz", "Guns And Roses", "The Beatles", "Portishead", "Ramones", "Nirvana", "Kiss", "The Rolling Stornes", "DragonForce", "Lynyrd Skynyrd", "Audioslave", "Coldplay", "LCD Soundsystem", "Rammstein", "Queen", "Muse"];
-var pause=false;
 
 window.addEventListener("load", iniciar);
 
 function iniciar() {
-    document.getElementById("victorias1").innerText=localStorage.getItem("victoriasJugador1");
-document.getElementById("victorias2").innerText=localStorage.getItem("victoriasJugador2");
+    var ganar=document.getElementById("ganar");
+    document.getElementById("victorias1").innerText = localStorage.getItem("victoriasJugador1");
+    document.getElementById("victorias2").innerText = localStorage.getItem("victoriasJugador2");
     document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
     console.log(localStorage.getItem("contador"));
 
@@ -17,18 +17,15 @@ document.getElementById("victorias2").innerText=localStorage.getItem("victoriasJ
     var nombreJugador1 = document.getElementById("nombreJugador1");
     var nombreJugador2 = document.getElementById("nombreJugador2");
     var categoria = document.getElementById("categoria");
-   // var palabra = document.getElementById("palabra");
+    // var palabra = document.getElementById("palabra");
 
     cajaJugador1.style.backgroundColor = localStorage.getItem("colorJugador1");
     cajaJugador2.style.backgroundColor = localStorage.getItem("colorJugador2");
     nombreJugador1.innerText = localStorage.getItem("nombreJugador1");
     nombreJugador2.innerText = localStorage.getItem("nombreJugador2");
     categoria.innerText = localStorage.getItem("categoria");
-
-
-
-
 }
+
 function playMusicaFondo() {
     if (document.getElementById("musicaFondo").paused == true) {
         document.getElementById("musicaFondo").play();
@@ -43,7 +40,9 @@ function playMusicaFondo() {
         }
     }
 }
+
 function finDeJuego() {
+    ganar.play();
     let nombre1 = localStorage.getItem("nombreJugador1");
     let nombre2 = localStorage.getItem("nombreJugador2");
     var pantallaResumen = document.getElementById("resumen");
@@ -70,11 +69,11 @@ function finDeJuego() {
     if (turno == 1) {
         victoriasJugador1++;
         localStorage.setItem("victoriasJugador1", victoriasJugador1);
-        
+
     } else {
         victoriasJugador2++;
         localStorage.setItem("victoriasJugador2", victoriasJugador2);
-       
+
     }
     // document.getElementById("victorias1").innerText=victoriasJugador1;
     // document.getElementById("victorias2").innerText=victoriasJugador2;
@@ -95,6 +94,5 @@ function finDeJuego() {
     pantallaResumen.append(volverAlFormulario);
     sessionStorage.setItem("fallosJugador1", 0);
     sessionStorage.setItem("fallosJugador2", 0);
-    pause=true;
 
 }
