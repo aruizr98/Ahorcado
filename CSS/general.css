@@ -270,6 +270,10 @@ button {
         width:37%;
         height:228px;
     }
+    #nombreJugador1, #nombreJugador2{
+        font-size:18px;
+    }
+
 }
 @media (max-width:500px){
    #gridContenedor{
@@ -288,6 +292,7 @@ button {
         width:69%;
     }
     #nombreJugador1, #nombreJugador2{
+        font-size:20px;
         margin-bottom:-11px;
     }
     #playMusica{
