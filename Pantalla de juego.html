@@ -17,10 +17,18 @@
 </head>
 
 <body>
+   
     <div id="gridContenedor">
     <img id="escudo1" src="img/escudo1.jpg"></img>
     <h1  id="categoria">Categoría</h1>
     <img id="escudo2" src="img/escudo2.png"></img>
+    <div id="controles_musica">
+        <audio volume="0,0000152587890625" loop id="musicaFondo">
+            <source src="audio/Bonfire+-+320bit.mp3" type="audio/mp3">
+            Tu navegador no soporta AUDIO: formato mp3
+        </audio>
+        <button id="playMusica"><img src="img/audioOFF1.png" id="imagenAudio" alt=""></img></button><!-- meter imagen de nota musical y que al activarlo se cambie el icono / volumen al 0.0625 (?) -->
+    </div>
     </div>  
     <div id="resumen" style="display:none;"></div>
     <div id="gridContainer">
