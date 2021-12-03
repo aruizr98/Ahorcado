@@ -126,6 +126,7 @@ function comprobarLetra(letra) {
     }
     console.log(letraCorrecta);
     if (!letraCorrecta) {
+        document.getElementById("fallar").play();
         letrasFalladas.push(letra);
         document.getElementById("letrasFalladas").innerText="Letras falladas: "+letrasFalladas;
         // let victoriasJugador1=localStorage.getItem("victoriasJugador1");
