@@ -7,6 +7,7 @@ var pause=false;
 window.addEventListener("load", iniciar);
 
 function iniciar() {
+    document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
     console.log(localStorage.getItem("contador"));
 
     var cajaJugador1 = document.getElementById("cajaJugador1");
@@ -26,7 +27,20 @@ function iniciar() {
 
 
 }
-
+function playMusicaFondo() {
+    if (document.getElementById("musicaFondo").paused == true) {
+        document.getElementById("musicaFondo").play();
+        document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+    } else {
+        if (document.getElementById("musicaFondo").muted == true) {
+            document.getElementById("musicaFondo").muted = false;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+        } else {
+            document.getElementById("musicaFondo").muted = true;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioOFF1.png");
+        }
+    }
+}
 function finDeJuego() {
     let nombre1 = localStorage.getItem("nombreJugador1");
     let nombre2 = localStorage.getItem("nombreJugador2");
