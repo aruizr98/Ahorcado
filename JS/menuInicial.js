@@ -19,7 +19,7 @@ function iniciar() {
             }
         }
     }
-    
+
     botonIniciar.addEventListener("click", function () {
         if (localStorage.getItem("victoriasJugador1") > 0 || localStorage.getItem("victoriasJugador2") > 0) {
             let respuesta = confirm("Hay datos de juego anteriores. ¿Quieres conservarlos?");
@@ -39,13 +39,35 @@ function iniciar() {
 }
 
 function mostrarReglas() {
+    var animacionMostrar = document.getElementById("reglas").animate([{ transform: "translateY(-1000px)" }, { transform: "translateY(0px)" }], { duration: 500, easing: "ease-out" });
+    var opacidad = 0;
+    animacionMasOpacidad();
+    function animacionMasOpacidad() {
+        if (opacidad < 0.25) {
+            opacidad += 0.01;
+            setTimeout(function () { animacionMasOpacidad() }, 10);
+        }
+        document.getElementById("sombraFondoReglas").style.opacity = opacidad;
+    }
     document.getElementById("reglas").style.display = "";
     document.getElementById("sombraFondoReglas").style.display = "";
 }
 
 function cerrarReglas() {
-    document.getElementById("reglas").style.display = "none";
-    document.getElementById("sombraFondoReglas").style.display = "none";
+    var animacionCerrar = document.getElementById("reglas").animate([{ transform: "translateY(0px)" }, { transform: "translateY(1000px)" }], { duration: 500, easing: "ease-in" });
+    var opacidad = 0.25;
+    animacionMenosOpacidad();
+    function animacionMenosOpacidad() {
+        if (opacidad > 0) {
+            opacidad -= 0.01;
+            setTimeout(function () { animacionMenosOpacidad() }, 10);
+        }
+        document.getElementById("sombraFondoReglas").style.opacity = opacidad;
+    }
+    animacionCerrar.onfinish = function () {
+        document.getElementById("reglas").style.display = "none";
+        document.getElementById("sombraFondoReglas").style.display = "none";
+    };
 }
 
 function playMusicaFondo() {
