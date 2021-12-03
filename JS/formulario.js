@@ -1,6 +1,7 @@
 window.addEventListener("load", iniciar);
 
 function iniciar() {
+    document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
     var nombreJugador1 = document.getElementById("nombreJugador1");
     var nombreJugador2 = document.getElementById("nombreJugador2");
     var colorJugador1 = document.getElementById("colorJugador1");
@@ -29,4 +30,18 @@ function iniciar() {
         this.close();
 
     })
+}
+function playMusicaFondo() {
+    if (document.getElementById("musicaFondo").paused == true) {
+        document.getElementById("musicaFondo").play();
+        document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+    } else {
+        if (document.getElementById("musicaFondo").muted == true) {
+            document.getElementById("musicaFondo").muted = false;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+        } else {
+            document.getElementById("musicaFondo").muted = true;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioOFF1.png");
+        }
+    }
 }
