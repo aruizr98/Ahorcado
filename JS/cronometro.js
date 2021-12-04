@@ -17,8 +17,8 @@ function iniciar() {
 
     //Cronómetro
     function restarCronometro(cronometro) {
-        let numero = Number(cronometro.innerText);
-        if (numero != 0) {
+        let numero = Number(cronometro.innerText);//Obtenemos el número por el que va el cronómetro
+        if (numero != 0) {//Si es distinto de 0, se resta uno, sino, cambia de turno y se resetea.
             numero--;
         } else {
             cambioTurno();
@@ -28,7 +28,7 @@ function iniciar() {
     }
     
     window.setInterval(function () {
-        if(screen.width>1136){
+        if(screen.width>1136){//Si estamos en el modo de pc hay animaciones en las cajas de los jugadores
         if (turno == 1) {
             restarCronometro(cronometro1);
             cajaJugador1.style.opacity = 1;
@@ -42,7 +42,7 @@ function iniciar() {
             cajaJugador1.style.opacity = 0.2;
             cajaJugador1.style.transform = "scale(0.8)";
         }
-    }else{
+    }else{//Pero si estamos en el modo tablet o móvil, no hacemos las animaciones, ya que las cajas sobresaldrían.
         if (turno == 1) {
             restarCronometro(cronometro1);
             cajaJugador1.style.display = "";

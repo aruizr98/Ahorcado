@@ -107,8 +107,6 @@ function comprobarLetra(letra) {//Comprobamos la letra que ha sido pulsada por e
         }
     }
 
-    console.log("contador: " + contador);
-    console.log("palabra dividida length: " + palabraDividida.length);
     if (contador == palabraDividida.length) {//Si número del contador es igual al número de letras (contando los espacios) que tiene la palabra, quiere decir que se ha completado la palabra y ya está resuelta.
         cambioTurno();//Se cambia de turno
         finDeJuego();//Y se finaliza el juego, mostrando un resúmen en con los datos de la partida.

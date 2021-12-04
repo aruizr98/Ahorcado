@@ -1,31 +1,34 @@
+//Arrays con palabras para cada categoría
 var peliculas = ["Batman", "Origen", "Star Wars", "Indiana Jones", "Piratas del Caribe", "Interstellar", "Seven", "Regreso al Futuro", "Expediente Warren", "Terminator", "Toy Story", "Up", "Paranormal Activity", "El faro", "Spiderman", "Blade Runner", "V de Vendetta", "Monstruos SA", "La Vida De Brian", "Watchmen"];
 var videojuegos = ["Super Mario Bros", "The Legend of Zelda", "Metroid", "Uncharted", "God of War", "Tetris", "Profesor Layton", "Sonic The Hedgehog", "Half Life", "Spyro", "Crash Bandicoot", "Pokemon", "Metal Gear Solid", "Kirby", "Donkey Kong", "Pac Man", "Gran Turismo", "Grand Theft Auto", "Red Dead Redemption", "Call Of Duty", "Assassins Creed", "Rayman", "Splinter Cell"];
 var series = ["Breaking Bad", "Prison Break", "House", "Doctor Who", "Sherlock", "Better Call Saul", "The Walking Dead", "Bojack Horseman", "The Crown", "La Maldicion De Hill House", "Stranger Things", "luther", "Jessica Jones", "Black Mirror", "Mr Robot", "You", "Los Simpson", "Futurama"];
 var grupos = ["Radiohead", "Blur", "Oasis", "Led Zeppelin", "Metallica", "Daft Punk", "Gorillaz", "Guns And Roses", "The Beatles", "Portishead", "Ramones", "Nirvana", "Kiss", "The Rolling Stornes", "DragonForce", "Lynyrd Skynyrd", "Audioslave", "Coldplay", "LCD Soundsystem", "Rammstein", "Queen", "Muse"];
 
 window.addEventListener("load", iniciar);
-
 function iniciar() {
-    var ganar=document.getElementById("ganar");
-    document.getElementById("victorias1").innerText = localStorage.getItem("victoriasJugador1");
+    document.getElementById("victorias1").innerText = localStorage.getItem("victoriasJugador1");//Mostramos el número de victorias de cada jugador
     document.getElementById("victorias2").innerText = localStorage.getItem("victoriasJugador2");
-    document.getElementById("playMusica").addEventListener("click", playMusicaFondo);
-    console.log(localStorage.getItem("contador"));
+    document.getElementById("playMusica").addEventListener("click", playMusicaFondo);//Al hacer click en el icono de música, se reproduce la música de fondo
 
+    /**
+     * Guardamos en variables la información del DOM
+     */
     var cajaJugador1 = document.getElementById("cajaJugador1");
     var cajaJugador2 = document.getElementById("cajaJugador2");
     var nombreJugador1 = document.getElementById("nombreJugador1");
     var nombreJugador2 = document.getElementById("nombreJugador2");
     var categoria = document.getElementById("categoria");
-    // var palabra = document.getElementById("palabra");
 
-    cajaJugador1.style.backgroundColor = localStorage.getItem("colorJugador1");
+    cajaJugador1.style.backgroundColor = localStorage.getItem("colorJugador1");//Escribe en la caja de cada jugador el color que ha elegido
     cajaJugador2.style.backgroundColor = localStorage.getItem("colorJugador2");
-    nombreJugador1.innerText = localStorage.getItem("nombreJugador1");
+    nombreJugador1.innerText = localStorage.getItem("nombreJugador1");//Escribe El nombre de cada jugador
     nombreJugador2.innerText = localStorage.getItem("nombreJugador2");
-    categoria.innerText = localStorage.getItem("categoria");
+    categoria.innerText = localStorage.getItem("categoria");//Escribe la categoría en la que se está jugando
 }
-
+/**
+ * Si nunca antes se ha pulsado, reproduce la canción desde el principio.
+ * SI ya se ha pulsado antes, solo la mutea o no.
+ */
 function playMusicaFondo() {
     if (document.getElementById("musicaFondo").paused == true) {
         document.getElementById("musicaFondo").play();
@@ -42,45 +45,48 @@ function playMusicaFondo() {
 }
 
 function finDeJuego() {
-    ganar.play();
+    document.getElementById("ganar").play();//Se reproduce la música de ganar
+    /**
+     * Guardamos en variables los nombres de cada jugadores para posteriormente mostrarlos.
+     */
     let nombre1 = localStorage.getItem("nombreJugador1");
     let nombre2 = localStorage.getItem("nombreJugador2");
-    var pantallaResumen = document.getElementById("resumen");
-    var sombraFondo = document.getElementById("sombraFondoFinDeJuego");
-    pantallaResumen.style.display = "";
-    sombraFondo.style.display = "";
-
-    let h1 = document.createElement("h1");
-    h1.append("Resúmen de la partida");
-    pantallaResumen.append(h1);
-    let ganador = document.createElement("h2");
-    if (turno == 1) {
-        ganador.append("Ganador: " + nombre1);
-        pantallaResumen.append(ganador);
-    } else {
-        ganador.append("Ganador: " + nombre2);
-        pantallaResumen.append(ganador);
-    }
+    let pantallaResumen = document.getElementById("resumen");//Seleccionamos la caja donde se mostrará el resúmen de la partida
+    let sombraFondo = document.getElementById("sombraFondoFinDeJuego");
     let victorias1 = document.createElement("h2");
     let victorias2 = document.createElement("h2");
     let victoriasJugador1 = localStorage.getItem("victoriasJugador1");
     let victoriasJugador2 = localStorage.getItem("victoriasJugador2");
-
-    if (turno == 1) {
-        victoriasJugador1++;
+    pantallaResumen.style.display = "";//Mostramos la caja de resúmen
+    sombraFondo.style.display = "";//Y el fondo para que no se pueda pulsar ningún otro botón de la página.
+    /**
+     * Creamos cada elemento que va a tener la caja resúmen, le damos un valor y lo añadimos a la caja.
+     */
+    let h1 = document.createElement("h1");
+    h1.append("Resúmen de la partida");
+    pantallaResumen.append(h1);
+    let ganador = document.createElement("h2");
+    if (turno == 1) {//Si es el turno del jugador 1, entonces mostramos que ha ganado el jugador 1
+        ganador.append("Ganador: " + nombre1);
+        pantallaResumen.append(ganador);
+        victoriasJugador1++;//Y le sumamos una victoria
         localStorage.setItem("victoriasJugador1", victoriasJugador1);
-
-    } else {
+    } else {//si no, ha ganado el jugador 2
+        ganador.append("Ganador: " + nombre2);
+        pantallaResumen.append(ganador);
         victoriasJugador2++;
         localStorage.setItem("victoriasJugador2", victoriasJugador2);
-
     }
-    // document.getElementById("victorias1").innerText=victoriasJugador1;
-    // document.getElementById("victorias2").innerText=victoriasJugador2;
+    /**
+     * Mostrar las victorias de cada jugador
+     */
     victorias1.append("Victorias jugador 1 (" + nombre1 + "): " + localStorage.getItem("victoriasJugador1"));
     pantallaResumen.append(victorias1);
     victorias2.append("Victorias jugador 2 (" + nombre2 + "): " + localStorage.getItem("victoriasJugador2"));
     pantallaResumen.append(victorias2);
+     /**
+      * Crear y mostrar los botones
+      */
     let volverAJugar = document.createElement("button");
     let volverAlFormulario = document.createElement("button");
     volverAJugar.innerText = "Volver a jugar";
@@ -92,6 +98,9 @@ function finDeJuego() {
     volverAlFormulario.setAttribute("onclick", "window.open('FormularioInicial.html');window.close();");
     volverAlFormulario.setAttribute("style", "font-family:papyrus;font-size:14px;width:35%;float:right; margin-right:20px; background-color:black; color:white; cursor:pointer;");
     pantallaResumen.append(volverAlFormulario);
+    /**
+     * Se resetean los fallos
+     */
     sessionStorage.setItem("fallosJugador1", 0);
     sessionStorage.setItem("fallosJugador2", 0);
 
