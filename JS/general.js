@@ -4,6 +4,24 @@ var videojuegos = ["Super Mario Bros", "The Legend of Zelda", "Metroid", "Unchar
 var series = ["Breaking Bad", "Prison Break", "House", "Doctor Who", "Sherlock", "Better Call Saul", "The Walking Dead", "Bojack Horseman", "The Crown", "La Maldicion De Hill House", "Stranger Things", "luther", "Jessica Jones", "Black Mirror", "Mr Robot", "You", "Los Simpson", "Futurama"];
 var grupos = ["Radiohead", "Blur", "Oasis", "Led Zeppelin", "Metallica", "Daft Punk", "Gorillaz", "Guns And Roses", "The Beatles", "Portishead", "Ramones", "Nirvana", "Kiss", "The Rolling Stornes", "DragonForce", "Lynyrd Skynyrd", "Audioslave", "Coldplay", "LCD Soundsystem", "Rammstein", "Queen", "Muse"];
 
+/**
+ * Si nunca antes se ha pulsado, reproduce la canción desde el principio.
+ * SI ya se ha pulsado antes, solo la mutea o no.
+ */
+ function playMusicaFondo() {
+    if (document.getElementById("musicaFondo").paused == true) {
+        document.getElementById("musicaFondo").play();
+        document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+    } else {
+        if (document.getElementById("musicaFondo").muted == true) {
+            document.getElementById("musicaFondo").muted = false;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
+        } else {
+            document.getElementById("musicaFondo").muted = true;
+            document.getElementById("imagenAudio").setAttribute("src", "img/audioOFF1.png");
+        }
+    }
+}
 window.addEventListener("load", iniciar);
 function iniciar() {
     document.getElementById("victorias1").innerText = localStorage.getItem("victoriasJugador1");//Mostramos el número de victorias de cada jugador
@@ -25,24 +43,7 @@ function iniciar() {
     nombreJugador2.innerText = localStorage.getItem("nombreJugador2");
     categoria.innerText = localStorage.getItem("categoria");//Escribe la categoría en la que se está jugando
 }
-/**
- * Si nunca antes se ha pulsado, reproduce la canción desde el principio.
- * SI ya se ha pulsado antes, solo la mutea o no.
- */
-function playMusicaFondo() {
-    if (document.getElementById("musicaFondo").paused == true) {
-        document.getElementById("musicaFondo").play();
-        document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
-    } else {
-        if (document.getElementById("musicaFondo").muted == true) {
-            document.getElementById("musicaFondo").muted = false;
-            document.getElementById("imagenAudio").setAttribute("src", "img/audioON1.png");
-        } else {
-            document.getElementById("musicaFondo").muted = true;
-            document.getElementById("imagenAudio").setAttribute("src", "img/audioOFF1.png");
-        }
-    }
-}
+
 
 function finDeJuego() {
     document.getElementById("ganar").play();//Se reproduce la música de ganar
@@ -68,15 +69,14 @@ function finDeJuego() {
     let ganador = document.createElement("h2");
     if (turno == 1) {//Si es el turno del jugador 1, entonces mostramos que ha ganado el jugador 1
         ganador.append("Ganador: " + nombre1);
-        pantallaResumen.append(ganador);
         victoriasJugador1++;//Y le sumamos una victoria
         localStorage.setItem("victoriasJugador1", victoriasJugador1);
     } else {//si no, ha ganado el jugador 2
         ganador.append("Ganador: " + nombre2);
-        pantallaResumen.append(ganador);
         victoriasJugador2++;
         localStorage.setItem("victoriasJugador2", victoriasJugador2);
     }
+    pantallaResumen.append(ganador);
     /**
      * Mostrar las victorias de cada jugador
      */
