@@ -34,7 +34,9 @@ body {
 button {
     padding: 10px;
     width: 20%;
-    color: white;
+    color: black;
+    font-weight:bold;
+    background:url("../img/paper.jpg");
 }
 
 
