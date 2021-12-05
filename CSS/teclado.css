@@ -16,7 +16,9 @@
     font-family: papyrus;
     border: 1px solid black;
     width: 60%;
-    background-color: black;
+    background: url("../img/paper.jpg");
+    color:black;
+    font-weight:bold;
     margin: 5px;
     cursor: pointer;
     transition: all 300ms;
