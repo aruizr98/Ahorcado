@@ -9,10 +9,13 @@ function iniciar() {
     comprobarMejorJugador();
 
     function comprobarMejorJugador() {
+        //Si al menos uno de los jugadores tiene una victoria
         if (localStorage.getItem("victoriasJugador1") > 0 || localStorage.getItem("victoriasJugador2") > 0) {
+            //Si el jugador 1 tiene más puntos que el 2 o van empate se muestra primero el jugador 1
             if ((localStorage.getItem("victoriasJugador1") > localStorage.getItem("victoriasJugador2")) || (localStorage.getItem("victoriasJugador1") == localStorage.getItem("victoriasJugador2"))) {
                 tabla.innerHTML = "<li>" + localStorage.getItem("nombreJugador1") + ": " + localStorage.getItem("victoriasJugador1") + "</li>";
                 tabla.innerHTML += "<li>" + localStorage.getItem("nombreJugador2") + ": " + localStorage.getItem("victoriasJugador2") + "</li>";
+                //Si va ganando el jugador 2, se muestra primero el jugador 2
             } else if (localStorage.getItem("victoriasJugador2") > localStorage.getItem("victoriasJugador1")) {
                 tabla.innerHTML = "<li>" + localStorage.getItem("nombreJugador2") + ": " + localStorage.getItem("victoriasJugador2") + "</li>";
                 tabla.innerHTML += "<li>" + localStorage.getItem("nombreJugador1") + ": " + localStorage.getItem("victoriasJugador1") + "</li>";
