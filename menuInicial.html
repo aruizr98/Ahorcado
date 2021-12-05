@@ -56,30 +56,44 @@
             Bajo la licencia Creative Commons por la licencia de atribución 4.0
             <a href="http://creativecommons.org/licenses/by/4.0/"
                 title="creativecommons">http://creativecommons.org/licenses/by/4.0/</a><br>
-            Efecto de Aplausos: (<a href="https://www.freemusicprojects.com/es/" title="www.freemusicprojects.com">www.freemusicprojects.com</a>)<br/>
+            Efecto de Aplausos: (<a href="https://www.freemusicprojects.com/es/"
+                title="www.freemusicprojects.com">www.freemusicprojects.com</a>)<br />
             Efecto fallar: (<a href="https://www.videvo.net/es/" title="www.videvo.net/es">www.videvo.net/es</a>)
         </footer>
 
         <div id="reglas" style="display: none;">
             <h3>REGLAS</h3><br>
             Al iniciar el juego aparecerá una pantalla pre-partida en la que se deben introducir los datos de los
-            jugadores el tipo de palabras que aparecerán y el modo de juego, una vez introducidos los datos
+            jugadores, la categoría y el modo de juego. Una vez introducidos los datos
             comenzará la partida.<br><br>
 
+            En el caso en el que haya datos de juego anteriores, al pulsar en "comenzar partida" se prodrá decidir si
+            continuar con los datos anteriores o empezar una nueva partida desde 0.<br><br>
+
+            En el modo de juego aleatorio, las palabras a resolver serán aleatorias dentro de la categoría seleccionada
+            mientas que en el modo por dificultad, las palabras irán apareciendo de mayor a menor longitud, siempre
+            dentro
+            de la categoría seleccionada. En este último modo, al completar todas las palabras de una categoría, se
+            pasará a la siguiente<br><br>
+
             Cada jugador tiene 30 segundos para adivinar una letra de la palabra oculta, si el tiempo se acaba o la
-            letra dicha no está en la palabra se añadira una parte del dibujo del Ahorcado y se pasará el turno al otro
+            letra seleccionada no está en la palabra se añadira una parte del dibujo del Ahorcado y se pasará el turno
+            al otro
             jugador. <br>
-            En caso de que la letra dicha no este en la palabra oculta además se añadira esa letra al grupo de letras
+            En caso de que la letra seleccionada no este en la palabra oculta además se añadirá esa letra al grupo de
+            letras
             falladas.<br><br>
 
             El jugador que acierte la palabra o que no tenga el muñeco Ahorcado completo será quien gane la partida.<br>
-            La palabra se puede adivinar acertando todas las letras o dando al botón "Resolver" e introduciendo la
+            La palabra se puede adivinar acertando todas las letras o pulsando al botón "Resolver" e introduciendo la
             palabra completa correctamente. <br>
-            En caso de dar al botón resolver y fallar la palabra, se añadirá una parte del Ahorcado al jugador que haya
+            En caso de pulsar el botón resolver y fallar la palabra, se añadirá una parte del Ahorcado al jugador que
+            haya
             intentado resolver.<br><br>
 
             Al hacer click en "Nueva partida" se preguntará si estamos seguros de empezar una nueva partida, si se
-            responde "Si" se volverá a la pantalla pre-partida, si se reponde "No" secontinuará con la partida actual.
+            responde "Si" se borrarán los datos y se volverá a la pantalla pre-partida, si se reponde "No" se continuará
+            con la partida actual.
             <br><br>
             <button id="cerrarReglas">SALIR</button>
         </div>
