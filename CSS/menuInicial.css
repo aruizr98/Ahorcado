@@ -130,6 +130,7 @@ body {
 }
 
 #reglas {
+    font-weight:bold;
     color: rgb(0, 0, 25);
     position: absolute;
     align-self: center;
