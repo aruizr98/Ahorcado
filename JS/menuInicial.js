@@ -32,10 +32,10 @@ function iniciar() {
                 sessionStorage.setItem("fallosJugador1", 0);//Se resetean los fallos
                 sessionStorage.setItem("fallosJugador2", 0);
                 let contador = localStorage.getItem("contador");
-                 /**
-                  * Se resta uno al contador para que al cargar de nuevo la pantalla
-                  *  de juego no se pase a la siguiente palabra en el modo por dificultad
-                  */
+                /**
+                 * Se resta uno al contador para que al cargar de nuevo la pantalla
+                 *  de juego no se pase a la siguiente palabra en el modo por dificultad
+                 */
                 contador--;
                 localStorage.setItem("contador", contador);
                 /**
@@ -43,23 +43,25 @@ function iniciar() {
                  * sin pasar por el formulario
                  */
                 botonIniciar.setAttribute("href", "Pantalla de juego.html");
-            }else{
+            } else {
                 window.open("FormularioInicial.html");
                 window.close();
             }
-        }else{
+        } else {
             window.open("FormularioInicial.html");
             window.close();
         }
     })
 }
-function animacionMasOpacidad(opacidad) {//Aumenta la opacidad siempre que ésta sea mayor a 0.25
+
+function animacionMasOpacidad(opacidad) {//Aumenta la opacidad siempre que ésta sea menor a 0.25
     if (opacidad < 0.25) {
         opacidad += 0.01;
         setTimeout(function () { animacionMasOpacidad(opacidad) }, 10);
     }
     document.getElementById("sombraFondoReglas").style.opacity = opacidad;
 }
+
 function animacionMenosOpacidad(opacidad) {//Reduce la opacidad siempre que ésta sea mayor a 0
     if (opacidad > 0) {
         opacidad -= 0.01;
@@ -67,30 +69,27 @@ function animacionMenosOpacidad(opacidad) {//Reduce la opacidad siempre que ést
     }
     document.getElementById("sombraFondoReglas").style.opacity = opacidad;
 }
-function mostrarReglas() {
-    /**
-     * Animación que se produce al mostrar las reglas
-     */
+
+function mostrarReglas() { /* Animación que se produce al mostrar las reglas */
     document.getElementById("reglas").animate([{ transform: "translateY(-1000px)" }, { transform: "translateY(0px)" }], { duration: 500, easing: "ease-out" });
     var opacidad = 0;
     animacionMasOpacidad(opacidad);//La opacidad de la sombra del fondo aumenta gradualmente al abrir las reglas
-    
+
     document.getElementById("reglas").style.display = "";//Se muestra el div reglas
     document.getElementById("sombraFondoReglas").style.display = "";//Y se muestra la sombra de fondo
 }
-    /**
-     * Animación que se produce al cerrar las reglas
-     */
-function cerrarReglas() {
+
+function cerrarReglas() { /* Animación que se produce al cerrar las reglas */
     var animacionCerrar = document.getElementById("reglas").animate([{ transform: "translateY(0px)" }, { transform: "translateY(1000px)" }], { duration: 500, easing: "ease-in" });
     var opacidad = 0.25;
     animacionMenosOpacidad(opacidad);//La opacidad de la sombra del fondo disminuye gradualmente al cerrar las reglas
-   
+
     animacionCerrar.onfinish = function () {//Cuando termine la animación desaparecen las reglas y el fondo
         document.getElementById("reglas").style.display = "none";
         document.getElementById("sombraFondoReglas").style.display = "none";
     };
 }
+
 /**
  * Si la música no estaba iniciada, se iniciada
  * Si ya estaba iniciada solo se mutea y si vuelves a hacer click

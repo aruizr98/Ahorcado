@@ -32,9 +32,10 @@ function iniciar() {
 
     })
 }
+
 function playMusicaFondo() {
-    let musicaFondo=document.getElementById("musicaFondo");
-    let imagenAudio=document.getElementById("imagenAudio");
+    let musicaFondo = document.getElementById("musicaFondo");
+    let imagenAudio = document.getElementById("imagenAudio");
     if (musicaFondo.paused == true) {
         musicaFondo.play();
         imagenAudio.setAttribute("src", "img/audioON1.png");
